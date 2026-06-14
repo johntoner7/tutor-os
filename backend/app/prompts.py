@@ -222,6 +222,36 @@ Write ONE short greeting (1–2 sentences, max 35 words). Rules:
     return {"system": system, "messages": [{"role": "user", "content": content}]}
 
 
+def build_quiz_summary_prompt(
+    topic_name: str,
+    results: list[dict],
+) -> dict:
+    """Build a prompt for an AI weak-spot analysis after a quiz."""
+    lines = []
+    for i, r in enumerate(results, 1):
+        pct = round(r["marks_awarded"] / r["marks_available"] * 100) if r["marks_available"] else 0
+        lines.append(
+            f"Q{i}: {r['question']}\n"
+            f"  Score: {r['marks_awarded']}/{r['marks_available']} ({pct}%)"
+        )
+
+    content = (
+        f"Topic: {topic_name}\n\n"
+        f"Quiz results:\n" + "\n\n".join(lines)
+    )
+
+    system = """You are a GCSE Biology tutor giving targeted feedback after a short quiz.
+
+Write a concise analysis (3–5 sentences) that:
+1. States overall how the student performed
+2. Identifies the specific concept(s) they struggled with based on their wrong answers
+3. Gives one concrete, actionable revision tip for the weakest area
+
+Tone: encouraging but specific. Address the student directly. Do not invent details. If they scored full marks, congratulate them and suggest a related challenge topic."""
+
+    return {"system": system, "messages": [{"role": "user", "content": content}]}
+
+
 def build_marking_prompt(
     question: str, mark_scheme: str, marks_available: int, student_answer: str
 ) -> dict:

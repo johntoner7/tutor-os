@@ -80,6 +80,23 @@ class SQLiteRepository:
                     pass
             conn.execute("CREATE INDEX IF NOT EXISTS idx_session ON activity_events(session_id)")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_topic ON activity_events(session_id, topic_slug)")
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS session_summaries (
+                    id                    INTEGER PRIMARY KEY AUTOINCREMENT,
+                    created_at            TEXT NOT NULL,
+                    session_id            TEXT NOT NULL,
+                    user_id               TEXT,
+                    summary_type          TEXT NOT NULL,
+                    topic_slug            TEXT,
+                    topic_name            TEXT,
+                    summary_text          TEXT NOT NULL,
+                    weak_spots            TEXT,
+                    questions_attempted   INTEGER,
+                    total_awarded         INTEGER,
+                    total_available       INTEGER,
+                    average_score_percent REAL
+                )
+            """)
 
     def log_chat_message(
         self,
@@ -278,3 +295,29 @@ class SQLiteRepository:
         with self._conn() as conn:
             row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
         return dict(row) if row else None
+
+    def save_session_summary(
+        self,
+        session_id: str,
+        summary_type: str,
+        summary_text: str,
+        user_id: str | None = None,
+        topic_slug: str | None = None,
+        topic_name: str | None = None,
+        weak_spots: str | None = None,
+        questions_attempted: int | None = None,
+        total_awarded: int | None = None,
+        total_available: int | None = None,
+        average_score_percent: float | None = None,
+    ) -> None:
+        with self._conn() as conn:
+            conn.execute(
+                """INSERT INTO session_summaries
+                   (created_at, session_id, user_id, summary_type, topic_slug, topic_name,
+                    summary_text, weak_spots, questions_attempted,
+                    total_awarded, total_available, average_score_percent)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (self._now(), session_id, user_id, summary_type, topic_slug, topic_name,
+                 summary_text, weak_spots, questions_attempted,
+                 total_awarded, total_available, average_score_percent),
+            )

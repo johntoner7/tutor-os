@@ -97,3 +97,25 @@ class SessionSummary(BaseModel):
     topics_covered: list[str]
     questions_attempted: int
     average_score_percent: float | None
+
+
+class QuizResult(BaseModel):
+    question: str
+    marks_awarded: int
+    marks_available: int
+
+
+class QuizSummaryRequest(BaseModel):
+    session_id: str | None = None
+    user_id: str | None = None
+    topic_slug: str
+    topic_name: str
+    results: list[QuizResult]
+
+
+class QuizSummaryResponse(BaseModel):
+    summary: str
+    questions_attempted: int
+    total_awarded: int
+    total_available: int
+    average_score_percent: float | None

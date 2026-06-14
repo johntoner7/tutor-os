@@ -64,3 +64,18 @@ class Repository(Protocol):
     def get_or_create_user(self, email: str) -> dict: ...
 
     def get_user_by_id(self, user_id: str) -> dict | None: ...
+
+    def save_session_summary(
+        self,
+        session_id: str,
+        summary_type: str,
+        summary_text: str,
+        user_id: str | None = None,
+        topic_slug: str | None = None,
+        topic_name: str | None = None,
+        weak_spots: str | None = None,
+        questions_attempted: int | None = None,
+        total_awarded: int | None = None,
+        total_available: int | None = None,
+        average_score_percent: float | None = None,
+    ) -> None: ...

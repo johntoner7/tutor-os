@@ -68,3 +68,31 @@ def get_or_create_user(email):
 
 def get_user_by_id(user_id):
     return _repo.get_user_by_id(user_id)
+
+
+def save_session_summary(
+    session_id: str,
+    summary_type: str,
+    summary_text: str,
+    user_id: str | None = None,
+    topic_slug: str | None = None,
+    topic_name: str | None = None,
+    weak_spots: str | None = None,
+    questions_attempted: int | None = None,
+    total_awarded: int | None = None,
+    total_available: int | None = None,
+    average_score_percent: float | None = None,
+) -> None:
+    _repo.save_session_summary(
+        session_id=session_id,
+        summary_type=summary_type,
+        summary_text=summary_text,
+        user_id=user_id,
+        topic_slug=topic_slug,
+        topic_name=topic_name,
+        weak_spots=weak_spots,
+        questions_attempted=questions_attempted,
+        total_awarded=total_awarded,
+        total_available=total_available,
+        average_score_percent=average_score_percent,
+    )

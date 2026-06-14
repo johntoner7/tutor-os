@@ -2,14 +2,11 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
-import psycopg2
-import psycopg2.extras
-from psycopg2.pool import ThreadedConnectionPool
-
 
 class PostgresRepository:
     def __init__(self, database_url: str) -> None:
-        self._pool = ThreadedConnectionPool(1, 10, database_url)
+        import psycopg2.pool
+        self._pool = psycopg2.pool.ThreadedConnectionPool(1, 10, database_url)
 
     def _conn(self):
         return _PooledConnection(self._pool)
@@ -277,6 +274,33 @@ class PostgresRepository:
                     (user_id, email, now),
                 )
                 return {"id": user_id, "email": email, "created_at": now}
+
+    def save_session_summary(
+        self,
+        session_id: str,
+        summary_type: str,
+        summary_text: str,
+        user_id: str | None = None,
+        topic_slug: str | None = None,
+        topic_name: str | None = None,
+        weak_spots: str | None = None,
+        questions_attempted: int | None = None,
+        total_awarded: int | None = None,
+        total_available: int | None = None,
+        average_score_percent: float | None = None,
+    ) -> None:
+        with self._conn() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """INSERT INTO session_summaries
+                       (session_id, user_id, summary_type, topic_slug, topic_name,
+                        summary_text, weak_spots, questions_attempted,
+                        total_awarded, total_available, average_score_percent)
+                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                    (session_id, user_id, summary_type, topic_slug, topic_name,
+                     summary_text, weak_spots, questions_attempted,
+                     total_awarded, total_available, average_score_percent),
+                )
 
     def get_user_by_id(self, user_id: str) -> dict | None:
         with self._conn() as conn:

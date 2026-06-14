@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 
 from app import db
 from app.llm import complete
-from app.models import MasteryResponse, SessionStartResponse, SessionSummary, TopicMastery
-from app.prompts import build_greeting_prompt, build_summary_prompt
+from app.models import MasteryResponse, QuizSummaryRequest, QuizSummaryResponse, SessionStartResponse, SessionSummary, TopicMastery
+from app.prompts import build_greeting_prompt, build_quiz_summary_prompt, build_summary_prompt
 from app.registry import SubjectRegistry
 from app.routers.auth import get_current_user
 
@@ -115,7 +115,10 @@ async def get_mastery(session_id: str) -> MasteryResponse:
 
 
 @router.get("/session/{session_id}/summary", response_model=SessionSummary)
-async def get_summary(session_id: str) -> SessionSummary:
+async def get_summary(
+    session_id: str,
+    current_user: dict = Depends(get_current_user),
+) -> SessionSummary:
     events = db.get_session_events(session_id)
     if not events:
         raise HTTPException(status_code=404, detail="No activity found for this session")
@@ -126,6 +129,7 @@ async def get_summary(session_id: str) -> SessionSummary:
     ))
     questions_attempted = len(mark_events)
 
+    total_awarded = total_available = None
     if mark_events:
         total_awarded = sum(e["marks_awarded"] for e in mark_events)
         total_available = sum(e["marks_available"] for e in mark_events)
@@ -141,10 +145,64 @@ async def get_summary(session_id: str) -> SessionSummary:
         context="session_summary",
     )
 
+    db.save_session_summary(
+        session_id=session_id,
+        summary_type="session",
+        summary_text=summary_text,
+        user_id=current_user.get("sub"),
+        questions_attempted=questions_attempted,
+        total_awarded=total_awarded,
+        total_available=total_available,
+        average_score_percent=average_score_percent,
+    )
+
     return SessionSummary(
         session_id=session_id,
         summary=summary_text,
         topics_covered=topics_covered,
         questions_attempted=questions_attempted,
+        average_score_percent=average_score_percent,
+    )
+
+
+@router.post("/quiz/summary", response_model=QuizSummaryResponse)
+async def quiz_summary(
+    body: QuizSummaryRequest,
+    current_user: dict = Depends(get_current_user),
+) -> QuizSummaryResponse:
+    if not body.results:
+        raise HTTPException(status_code=400, detail="No results provided")
+
+    results_dicts = [r.model_dump() for r in body.results]
+    total_awarded = sum(r["marks_awarded"] for r in results_dicts)
+    total_available = sum(r["marks_available"] for r in results_dicts)
+    average_score_percent = round(total_awarded / total_available * 100, 1) if total_available else None
+
+    prompt = build_quiz_summary_prompt(body.topic_name, results_dicts)
+    summary_text, _ = complete(
+        system=prompt["system"],
+        messages=prompt["messages"],
+        max_tokens=250,
+        context="quiz_summary",
+    )
+
+    db.save_session_summary(
+        session_id=body.session_id or "unknown",
+        summary_type="quiz",
+        summary_text=summary_text,
+        user_id=current_user.get("sub"),
+        topic_slug=body.topic_slug,
+        topic_name=body.topic_name,
+        questions_attempted=len(results_dicts),
+        total_awarded=total_awarded,
+        total_available=total_available,
+        average_score_percent=average_score_percent,
+    )
+
+    return QuizSummaryResponse(
+        summary=summary_text,
+        questions_attempted=len(results_dicts),
+        total_awarded=total_awarded,
+        total_available=total_available,
         average_score_percent=average_score_percent,
     )
