@@ -2,6 +2,10 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
+import psycopg2
+import psycopg2.extras
+import psycopg2.pool
+
 
 class PostgresRepository:
     def __init__(self, database_url: str) -> None:
@@ -313,7 +317,7 @@ class PostgresRepository:
 class _PooledConnection:
     """Context manager that borrows a connection from the pool and commits/rolls back on exit."""
 
-    def __init__(self, pool: ThreadedConnectionPool) -> None:
+    def __init__(self, pool: "psycopg2.pool.ThreadedConnectionPool") -> None:
         self._pool = pool
         self._conn: Any = None
 
