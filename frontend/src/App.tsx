@@ -10,9 +10,11 @@ import { ChatWindow } from './components/ChatWindow'
 import { LoginScreen } from './components/LoginScreen'
 import { QuestionPanel } from './components/QuestionPanel'
 import { QuizSummary } from './components/QuizSummary'
+import { SessionSummaryPanel } from './components/SessionSummaryPanel'
 import { TopicDrawer } from './components/TopicDrawer'
 import { TopicSidebar } from './components/TopicSidebar'
-import type { Topic } from './types'
+import { fetchSessionSummary } from './api/client'
+import type { SessionSummary, Topic } from './types'
 
 const QUIZ_SIZE = 5
 
@@ -35,6 +37,10 @@ export default function App() {
   const [quizPhase, setQuizPhase] = useState<'idle' | 'in-progress' | 'summary'>('idle')
   const [quizIndex, setQuizIndex] = useState(0)
   const [quizResults, setQuizResults] = useState<QuizResult[]>([])
+  const [showSessionSummary, setShowSessionSummary] = useState(false)
+  const [sessionSummary, setSessionSummary] = useState<SessionSummary | null>(null)
+  const [sessionSummaryLoading, setSessionSummaryLoading] = useState(false)
+  const [sessionSummaryError, setSessionSummaryError] = useState<string | null>(null)
 
   const { history, loading, error: chatError, send, clearHistory } = useChat(activeTopic, sessionId, touchActivity)
   const {
@@ -137,6 +143,18 @@ export default function App() {
     handleStartQuiz()
   }
 
+  function handleEndSession() {
+    setShowSessionSummary(true)
+    setShowQuestion(true)
+    setSessionSummary(null)
+    setSessionSummaryLoading(true)
+    setSessionSummaryError(null)
+    fetchSessionSummary(sessionId)
+      .then(setSessionSummary)
+      .catch(err => setSessionSummaryError(err instanceof Error ? err.message : 'Could not load summary.'))
+      .finally(() => setSessionSummaryLoading(false))
+  }
+
   const activeTopicName = topics.find(t => t.slug === activeTopic)?.name ?? ''
 
   if (!user) {
@@ -194,6 +212,7 @@ export default function App() {
                 onOpenTopicPicker={() => setShowTopicDrawer(true)}
                 onClearTopic={handleClearTopic}
                 onTopicSelect={handleTopicSelect}
+                onEndSession={handleEndSession}
               />
             </div>
 
@@ -207,10 +226,19 @@ export default function App() {
                   exit={{ opacity: 0, y: 12 }}
                   transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.28 }}
                 >
-                  {quizPhase === 'summary' ? (
+                  {showSessionSummary ? (
+                    <SessionSummaryPanel
+                      summary={sessionSummary}
+                      loading={sessionSummaryLoading}
+                      error={sessionSummaryError}
+                      onClose={() => { setShowSessionSummary(false); setShowQuestion(false) }}
+                    />
+                  ) : quizPhase === 'summary' ? (
                     <QuizSummary
                       results={quizResults}
                       topicName={activeTopicName}
+                      topicSlug={activeTopic}
+                      sessionId={sessionId}
                       onRetry={handleRetryQuiz}
                       onClose={handleQuizClose}
                     />

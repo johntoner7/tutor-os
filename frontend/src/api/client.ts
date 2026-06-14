@@ -6,6 +6,8 @@ import type {
   MasteryResponse,
   QuestionRequest,
   QuestionResponse,
+  QuizResult,
+  QuizSummaryResponse,
   SessionSummary,
   TopicsResponse,
   UserMasteryResponse,
@@ -91,4 +93,17 @@ export interface SessionStartResponse {
 
 export function fetchSessionStart(): Promise<SessionStartResponse> {
   return request('/session/start', { method: 'POST' })
+}
+
+export function fetchQuizSummary(payload: {
+  session_id: string | null
+  topic_slug: string
+  topic_name: string
+  results: QuizResult[]
+}): Promise<QuizSummaryResponse> {
+  return request('/quiz/summary', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
 }

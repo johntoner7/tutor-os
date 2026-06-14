@@ -25,6 +25,7 @@ interface Props {
   onOpenTopicPicker: () => void
   onClearTopic: () => void
   onTopicSelect: (slug: string) => void
+  onEndSession: () => void
 }
 
 export function ChatWindow({
@@ -41,6 +42,7 @@ export function ChatWindow({
   onOpenTopicPicker,
   onClearTopic,
   onTopicSelect,
+  onEndSession,
 }: Props) {
   const glossary = useGlossary()
   const [input, setInput] = useState('')
@@ -229,28 +231,36 @@ export function ChatWindow({
               </motion.button>
             )}
 
-            {canAskQuestion && (
-              <div className="flex items-center gap-1.5 ml-auto">
+            <div className="flex items-center gap-1.5 ml-auto">
                 <motion.button
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  onClick={onRequestQuestion}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border bg-white border-gray-200 text-gray-500 hover:border-red-200 hover:text-red-600 transition-colors"
+                  onClick={canAskQuestion ? onRequestQuestion : onOpenTopicPicker}
+                  title={canAskQuestion ? undefined : 'Select a topic first'}
+                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                    canAskQuestion
+                      ? 'bg-white border-gray-200 text-gray-500 hover:border-red-200 hover:text-red-600'
+                      : 'bg-white border-dashed border-gray-300 text-gray-400 hover:border-red-300 hover:text-red-500'
+                  }`}
                 >
                   <BookOpen className="w-3 h-3" />
-                  Question
+                  {canAskQuestion ? 'Question' : 'Pick topic →'}
                 </motion.button>
                 <motion.button
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  onClick={onRequestQuiz}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border bg-red-600 border-red-600 text-white hover:bg-red-700 transition-colors"
+                  onClick={canAskQuestion ? onRequestQuiz : onOpenTopicPicker}
+                  title={canAskQuestion ? undefined : 'Select a topic first'}
+                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                    canAskQuestion
+                      ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
+                      : 'bg-gray-100 border-gray-200 text-gray-400 hover:bg-gray-200'
+                  }`}
                 >
                   <Zap className="w-3 h-3" />
-                  Quick quiz
+                  {canAskQuestion ? 'Quick quiz' : 'Quick quiz'}
                 </motion.button>
               </div>
-            )}
           </div>
 
           {/* Input box */}
@@ -276,9 +286,19 @@ export function ChatWindow({
             </button>
           </div>
 
-          <p className="text-center text-xs text-gray-300 mt-2">
-            Answers are grounded in the CCEA Biology specification
-          </p>
+          <div className="flex items-center justify-between mt-2">
+            <p className="text-xs text-gray-400">
+              Answers are grounded in the CCEA Biology specification
+            </p>
+            {history.length > 0 && (
+              <button
+                onClick={onEndSession}
+                className="text-xs text-gray-400 hover:text-gray-600 transition-colors whitespace-nowrap ml-3"
+              >
+                End session ↗
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

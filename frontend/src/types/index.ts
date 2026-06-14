@@ -90,3 +90,17 @@ export interface SessionSummary {
   questions_attempted: number
   average_score_percent: number | null
 }
+
+export interface QuizResult {
+  question: string
+  marks_awarded: number
+  marks_available: number
+}
+
+export interface QuizSummaryResponse {
+  summary: string
+  questions_attempted: number
+  total_awarded: number
+  total_available: number
+  average_score_percent: number | null
+}
