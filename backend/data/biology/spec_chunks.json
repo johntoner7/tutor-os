@@ -1,0 +1,1774 @@
+[
+  {
+    "id": "unit1_topic1_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Cells",
+    "topic_slug": "cells",
+    "objective": "carry out practical work to make a temporary slide and use a light microscope to examine and identify the structures of a typical plant and animal cell",
+    "content": "Students should be able to: carry out practical work to make a temporary slide and use a light microscope to examine and identify the structures of a typical plant and animal cell.",
+    "keywords": [
+      "light microscope",
+      "temporary slide",
+      "plant cell",
+      "animal cell",
+      "cell structure"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit1_topic1_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Cells",
+    "topic_slug": "cells",
+    "objective": "demonstrate knowledge of the structure and function of animal cells, including nucleus and chromosomes, cytoplasm, mitochondria as the site of cell respiration, and cell and nuclear membranes",
+    "content": "Students should be able to: demonstrate knowledge of the structure and function of animal cells, including nucleus and chromosomes, cytoplasm, mitochondria as the site of cell respiration, and cell and nuclear membranes.",
+    "keywords": [
+      "nucleus",
+      "chromosomes",
+      "cytoplasm",
+      "mitochondria",
+      "cell respiration",
+      "cell membrane",
+      "nuclear membrane"
+    ],
+    "word_count": 37
+  },
+  {
+    "id": "unit1_topic1_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Cells",
+    "topic_slug": "cells",
+    "objective": "demonstrate knowledge that plant cells can have additional structures not found in animal cells: cellulose cell wall, large permanent vacuole and chloroplasts",
+    "content": "Students should be able to: demonstrate knowledge that plant cells can have additional structures not found in animal cells: cellulose cell wall, large permanent vacuole and chloroplasts.",
+    "keywords": [
+      "cellulose cell wall",
+      "vacuole",
+      "chloroplasts",
+      "plant cell",
+      "cell structure"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit1_topic1_obj4",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Cells",
+    "topic_slug": "cells",
+    "objective": "compare and contrast the structure of bacterial cells with plant and animal cells: non-cellulose cell wall, absence of nucleus and presence of plasmids",
+    "content": "Students should be able to: compare and contrast the structure of bacterial cells with plant and animal cells: non-cellulose cell wall, absence of nucleus and presence of plasmids.",
+    "keywords": [
+      "bacterial cell",
+      "non-cellulose cell wall",
+      "plasmids",
+      "nucleus",
+      "prokaryote"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit1_topic1_obj5",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Cells",
+    "topic_slug": "cells",
+    "objective": "demonstrate knowledge and understanding that multicelled organisms' cells can form specialised tissues, organs and organ systems",
+    "content": "Students should be able to: demonstrate knowledge and understanding that multicelled organisms' cells can form specialised tissues, organs and organ systems.",
+    "keywords": [
+      "multicellular",
+      "specialised cells",
+      "tissues",
+      "organs",
+      "organ systems"
+    ],
+    "word_count": 24
+  },
+  {
+    "id": "unit1_topic2_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "demonstrate knowledge and understanding of photosynthesis as an endothermic process that takes place in chloroplasts, where chlorophyll absorbs light energy and produces sugars and starch",
+    "content": "Students should be able to: demonstrate knowledge and understanding of photosynthesis as an endothermic process that takes place in chloroplasts, where chlorophyll absorbs light energy and produces sugars and starch.",
+    "keywords": [
+      "photosynthesis",
+      "endothermic",
+      "chloroplasts",
+      "chlorophyll",
+      "light energy",
+      "glucose",
+      "starch"
+    ],
+    "word_count": 34
+  },
+  {
+    "id": "unit1_topic2_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "recall the word equation and balanced chemical equation for photosynthesis",
+    "content": "Students should be able to: recall the word equation for photosynthesis \u2014 carbon dioxide + water (light, chlorophyll) \u2192 glucose + oxygen \u2014 and the balanced chemical equation: 6CO2 + 6H2O (light, chlorophyll) \u2192 C6H12O6 + 6O2.",
+    "keywords": [
+      "photosynthesis equation",
+      "carbon dioxide",
+      "water",
+      "glucose",
+      "oxygen",
+      "chlorophyll"
+    ],
+    "word_count": 40
+  },
+  {
+    "id": "unit1_topic2_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "explain investigations into how photosynthesis requires light, carbon dioxide and chlorophyll, including how and why a plant is destarched, testing a leaf for starch, the production of oxygen, using sodium hydroxide to absorb carbon dioxide, and using a variegated leaf to illustrate the role of chlorophyll",
+    "content": "Students should be able to: explain investigations into how photosynthesis requires light, carbon dioxide and chlorophyll to show that biology is an evidence-based discipline, including: how and why a plant is destarched; testing a leaf for starch by boiling in water, boiling in ethanol, softening in water and testing with iodine solution; the production of oxygen; using sodium hydroxide to absorb carbon dioxide; and using a variegated leaf to illustrate the role of chlorophyll. Students should also be able to: investigate the need for light and chlorophyll in photosynthesis by testing a leaf for starch (Prescribed Practical B1).",
+    "keywords": [
+      "destarching",
+      "iodine test",
+      "starch",
+      "ethanol",
+      "sodium hydroxide",
+      "variegated leaf",
+      "chlorophyll",
+      "oxygen production"
+    ],
+    "word_count": 105
+  },
+  {
+    "id": "unit1_topic2_obj4",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "explain how temperature, light intensity and carbon dioxide concentration affect the rate of photosynthesis and interpret data on how the limiting factors affect the rate of photosynthesis",
+    "content": "Students should be able to: explain how temperature, light intensity and carbon dioxide concentration affect the rate of photosynthesis and interpret data on how the limiting factors affect the rate of photosynthesis.",
+    "keywords": [
+      "limiting factors",
+      "rate of photosynthesis",
+      "temperature",
+      "light intensity",
+      "carbon dioxide concentration"
+    ],
+    "word_count": 35
+  },
+  {
+    "id": "unit1_topic2_obj5",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "explain how the relationship between photosynthesis and respiration affects the gas exchange between organisms and their environment, including knowledge of hydrogencarbonate indicator colour changes and demonstrating compensation point",
+    "content": "Students should be able to: explain how the relationship between photosynthesis and respiration affects the gas exchange between organisms and their environment, including: demonstrating knowledge of the colour changes of hydrogencarbonate indicator (high CO2 \u2013 yellow, normal CO2 \u2013 red and low CO2 \u2013 purple); and demonstrating compensation point.",
+    "keywords": [
+      "gas exchange",
+      "hydrogencarbonate indicator",
+      "compensation point",
+      "photosynthesis",
+      "respiration",
+      "carbon dioxide"
+    ],
+    "word_count": 53
+  },
+  {
+    "id": "unit1_topic2_obj6",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "describe the structure and shape of the mesophytic leaf and identify its adaptations for gas exchange and light absorption",
+    "content": "Students should be able to: describe the structure and shape of the mesophytic leaf and identify its adaptations for gas exchange and light absorption, including: the epidermis, with cell walls as a physical defence that are transparent to allow light through; the waxy cuticle, which is a physical defence that is transparent to allow light through and waterproof to reduce water loss; the palisade mesophyll cells, which are tightly packed, end on to the upper surface with many chloroplasts to increase photosynthesis; the spongy mesophyll cells, with a few chloroplasts and a large surface area for gas exchange; intercellular spaces, which allow diffusion of gases through the leaf; and guard cells and stomata, which allow gases to diffuse into and out of the leaf.",
+    "keywords": [
+      "mesophytic leaf",
+      "epidermis",
+      "waxy cuticle",
+      "palisade mesophyll",
+      "spongy mesophyll",
+      "stomata",
+      "guard cells",
+      "intercellular spaces"
+    ],
+    "word_count": 125
+  },
+  {
+    "id": "unit1_topic3_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nutrition and Food Tests",
+    "topic_slug": "nutrition-and-food-tests",
+    "objective": "recall the food test reagents and their colour changes: Benedict's (blue to brick red), iodine solution (yellow-brown to blue-black), Biuret (blue to lilac/purple), ethanol (colourless to white emulsion)",
+    "content": "Students should be able to: recall the following reagents and their colour changes: Benedict's \u2014 initial colour Blue, end colour for positive result Brick red precipitate; Iodine solution \u2014 initial colour Yellow\u2013brown, end colour Blue\u2013black; Biuret \u2014 initial colour Blue, end colour Lilac/Purple; Ethanol \u2014 initial colour Colourless, end colour White emulsion.",
+    "keywords": [
+      "Benedict's reagent",
+      "iodine solution",
+      "Biuret reagent",
+      "ethanol",
+      "food tests",
+      "colour change"
+    ],
+    "word_count": 57
+  },
+  {
+    "id": "unit1_topic3_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nutrition and Food Tests",
+    "topic_slug": "nutrition-and-food-tests",
+    "objective": "investigate food samples using food tests, including reducing sugar (Benedict's), starch (iodine solution), amino acid or protein (Biuret), and fats (ethanol)",
+    "content": "Students should be able to: investigate food samples using food tests, including: reducing sugar (Benedict's); starch (iodine solution); amino acid or protein (Biuret); and fats (ethanol).",
+    "keywords": [
+      "reducing sugar",
+      "starch",
+      "protein",
+      "fats",
+      "Benedict's",
+      "iodine",
+      "Biuret",
+      "food tests"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit1_topic3_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nutrition and Food Tests",
+    "topic_slug": "nutrition-and-food-tests",
+    "objective": "explain the importance of biological molecules: carbohydrates, fats/lipids and proteins, and investigate the energy content of food by burning food samples",
+    "content": "Students should be able to: explain the importance of the following biological molecules: carbohydrates, made up of simple carbohydrates (sugars, glucose and lactose) as sources of energy and storage, complex carbohydrates (cellulose, starch and glycogen); fats/lipids, including oils, made up of fatty acids and glycerol, as sources of energy and storage; and proteins, made up of amino acids, as structural and functional molecules in cells. Students should also: investigate the energy content of food by burning food samples (Prescribed Practical B2).",
+    "keywords": [
+      "carbohydrates",
+      "lipids",
+      "proteins",
+      "amino acids",
+      "fatty acids",
+      "glycerol",
+      "energy content",
+      "glycogen"
+    ],
+    "word_count": 86
+  },
+  {
+    "id": "unit1_topic4_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Enzymes and Digestion",
+    "topic_slug": "enzymes-and-digestion",
+    "objective": "describe the actions of enzymes as proteins that are biological catalysts that speed up the rate of reactions without being used up, including carbohydrase (amylase), lipase and protease, and interpret results using the lock and key model to illustrate substrate specificity",
+    "content": "Students should be able to: describe the actions of enzymes as proteins that are biological catalysts that speed up the rate of reactions without being used up, including carbohydrase (amylase), lipase and protease, and interpret the results using the lock and key model to illustrate substrate specificity.",
+    "keywords": [
+      "enzyme",
+      "biological catalyst",
+      "lock and key model",
+      "substrate specificity",
+      "amylase",
+      "lipase",
+      "protease",
+      "active site"
+    ],
+    "word_count": 48
+  },
+  {
+    "id": "unit1_topic4_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Enzymes and Digestion",
+    "topic_slug": "enzymes-and-digestion",
+    "objective": "interpret how temperature, pH, enzyme concentration and inhibitors affect the action of enzymes, including low temperature causing reduced rates of collision, the optimum rate, denaturation above the optimum, and inhibitors as molecules that fit the active site but are not broken down",
+    "content": "Students should be able to: interpret how temperature, pH, enzyme concentration and inhibitors affect the action of enzymes, including: low temperature causing reduced rates of collision between substrate and enzyme; describing the maximum rate of reaction as the optimum; denaturation occurring increasingly at levels above the optimum, explained as an irreversible change to the shape of the active site that inhibits enzyme action; and inhibitors as molecules that fit the active site but are not broken down (no further detail required). Students should also: investigate the effect of temperature on the action of an enzyme (Prescribed Practical B3).",
+    "keywords": [
+      "enzyme activity",
+      "temperature",
+      "pH",
+      "denaturation",
+      "optimum",
+      "inhibitors",
+      "active site",
+      "collision rate"
+    ],
+    "word_count": 99
+  },
+  {
+    "id": "unit1_topic4_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Enzymes and Digestion",
+    "topic_slug": "enzymes-and-digestion",
+    "objective": "demonstrate knowledge and understanding that in food digestion, enzymes are needed to break down large, insoluble molecules into small, soluble ones that can then be absorbed into the bloodstream, and that they have commercial and economic uses, including biological washing powders",
+    "content": "Students should be able to: demonstrate knowledge and understanding that in food digestion, enzymes are needed to break down (digest) large, insoluble molecules into small, soluble ones that can then be absorbed into the bloodstream and that they have commercial and economic uses, including biological washing powders.",
+    "keywords": [
+      "digestion",
+      "insoluble molecules",
+      "soluble molecules",
+      "bloodstream absorption",
+      "biological washing powders",
+      "commercial enzymes"
+    ],
+    "word_count": 47
+  },
+  {
+    "id": "unit1_topic5_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "explain the adaptations of respiratory surfaces in plants and animals, including large surface area, thin, moist, permeable, good blood supply and diffusion gradient",
+    "content": "Students should be able to: explain the adaptations of respiratory surfaces in plants and animals, including large surface area, thin, moist, permeable, good blood supply and diffusion gradient.",
+    "keywords": [
+      "respiratory surface",
+      "surface area",
+      "diffusion gradient",
+      "gas exchange",
+      "adaptations",
+      "permeability"
+    ],
+    "word_count": 30
+  },
+  {
+    "id": "unit1_topic5_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "demonstrate knowledge and understanding of the effect of exercise on the depth and rate of breathing",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the effect of exercise on the depth and rate of breathing.",
+    "keywords": [
+      "breathing rate",
+      "depth of breathing",
+      "exercise",
+      "ventilation"
+    ],
+    "word_count": 22
+  },
+  {
+    "id": "unit1_topic5_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "demonstrate knowledge and understanding that respiration is a reaction that is exothermic, taking place in mitochondria, continuously releasing energy in all cells that organisms can use for heat, movement, growth, reproduction and active uptake/transport",
+    "content": "Students should be able to: demonstrate knowledge and understanding that respiration is a reaction that is exothermic, taking place in mitochondria, continuously releasing energy in all cells that organisms can use for heat, movement, growth, reproduction and active uptake/transport.",
+    "keywords": [
+      "respiration",
+      "exothermic",
+      "mitochondria",
+      "energy release",
+      "active transport",
+      "aerobic respiration"
+    ],
+    "word_count": 42
+  },
+  {
+    "id": "unit1_topic5_obj4",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "recall the word equation for aerobic respiration and the balanced chemical equation",
+    "content": "Students should be able to: recall the word equation for aerobic respiration \u2014 glucose + oxygen \u2192 energy + carbon dioxide + water \u2014 and the balanced chemical equation: C6H12O6 + 6O2 \u2192 energy + 6CO2 + 6H2O.",
+    "keywords": [
+      "aerobic respiration",
+      "glucose",
+      "oxygen",
+      "carbon dioxide",
+      "water",
+      "respiration equation"
+    ],
+    "word_count": 38
+  },
+  {
+    "id": "unit1_topic5_obj5",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "compare and contrast aerobic respiration with anaerobic respiration in mammalian muscle (glucose \u2192 energy + lactic acid) and in yeast (glucose \u2192 energy + alcohol + carbon dioxide)",
+    "content": "Students should be able to: compare and contrast aerobic respiration with anaerobic respiration in mammalian muscle \u2014 glucose \u2192 energy + lactic acid \u2014 and in yeast \u2014 glucose \u2192 energy + alcohol + carbon dioxide.",
+    "keywords": [
+      "anaerobic respiration",
+      "lactic acid",
+      "fermentation",
+      "yeast",
+      "ethanol",
+      "mammalian muscle"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit1_topic5_obj6",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "The Respiratory System, Breathing and Respiration",
+    "topic_slug": "the-respiratory-system-breathing-and-respiration",
+    "objective": "carry out practical work to investigate the respiration of yeast",
+    "content": "Students should be able to: carry out practical work to investigate the respiration of yeast.",
+    "keywords": [
+      "yeast",
+      "respiration",
+      "practical investigation",
+      "fermentation"
+    ],
+    "word_count": 15
+  },
+  {
+    "id": "unit1_topic6_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "compare and contrast the two communication systems (nervous and hormonal) in the human body, including the speed and nature of the response",
+    "content": "Students should be able to: compare and contrast the two communication systems (nervous and hormonal) in the human body, including the speed and nature of the response.",
+    "keywords": [
+      "nervous system",
+      "hormonal system",
+      "communication",
+      "speed of response",
+      "coordination"
+    ],
+    "word_count": 30
+  },
+  {
+    "id": "unit1_topic6_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "describe and explain the basic structure and function of the central nervous system: the brain and spinal cord together form the central nervous system that controls and co-ordinates the responses between the receptors and effectors, and muscles",
+    "content": "Students should be able to: describe and explain the basic structure and function of the central nervous system: the brain and spinal cord together form the central nervous system that controls and co-ordinates the responses between the receptors and effectors, and muscles.",
+    "keywords": [
+      "central nervous system",
+      "brain",
+      "spinal cord",
+      "receptors",
+      "effectors",
+      "coordination"
+    ],
+    "word_count": 43
+  },
+  {
+    "id": "unit1_topic6_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "distinguish between voluntary and reflex actions, referring to conscious control and speed of response",
+    "content": "Students should be able to: distinguish between voluntary and reflex actions, referring to conscious control and speed of response.",
+    "keywords": [
+      "voluntary action",
+      "reflex action",
+      "conscious control",
+      "response speed"
+    ],
+    "word_count": 20
+  },
+  {
+    "id": "unit1_topic6_obj4",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "demonstrate knowledge and understanding of the pathway of the spinal reflex arc, including a receptor that detects stimuli and produces nerve impulses, a sensory, an association and a motor neurone connected by synapses, and an effector that responds to impulses from the motor neurone",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the pathway of the spinal reflex arc, including: a receptor that detects stimuli in the environment and produces nerve impulses; a sensory, an association and a motor neurone connected by synapses (gaps between neurones); and an effector (a muscle or gland) that responds to impulses from the motor neurone.",
+    "keywords": [
+      "reflex arc",
+      "receptor",
+      "sensory neurone",
+      "association neurone",
+      "motor neurone",
+      "synapse",
+      "effector",
+      "nerve impulse"
+    ],
+    "word_count": 60
+  },
+  {
+    "id": "unit1_topic6_obj5",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "explain the importance of maintaining a constant internal environment for the proper functioning of cells and enzymes in response to internal and external change, limited to controlling blood glucose concentration and osmoregulation",
+    "content": "Students should be able to: explain the importance of maintaining a constant internal environment for the proper functioning of cells and enzymes in response to internal and external change, limited to controlling blood glucose concentration and osmoregulation.",
+    "keywords": [
+      "homeostasis",
+      "internal environment",
+      "blood glucose",
+      "osmoregulation",
+      "enzymes",
+      "constant conditions"
+    ],
+    "word_count": 39
+  },
+  {
+    "id": "unit1_topic6_obj6",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "demonstrate knowledge and understanding that hormones are chemical messengers produced by glands and released into the blood, including the role of the pancreas and insulin in controlling blood glucose concentration",
+    "content": "Students should be able to: demonstrate knowledge and understanding that hormones are chemical messengers produced by glands and released into the blood, which carries them to a target organ where they act, referring to: the pancreas constantly monitoring blood glucose concentration; the pancreas producing insulin in response to increasing blood glucose concentration; insulin acting by causing the liver to absorb more glucose from the blood, so lowering blood glucose concentration; and liver cells either respiring the absorbed glucose or converting it to glycogen, which they store.",
+    "keywords": [
+      "hormones",
+      "insulin",
+      "pancreas",
+      "blood glucose",
+      "glycogen",
+      "liver",
+      "target organ"
+    ],
+    "word_count": 89
+  },
+  {
+    "id": "unit1_topic6_obj7",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "demonstrate knowledge and understanding of diabetes, including Type 1 and Type 2 diabetes, their causes, symptoms and long-term effects, and evaluate why the number of people with diabetes in the population is rising",
+    "content": "Students should be able to: demonstrate knowledge and understanding that: diabetes is a condition in which the blood glucose control mechanism fails; Type 1 diabetes usually occurs early in life when the pancreas stops producing insulin, which then has to be taken as medication throughout life; Type 2 diabetes is a progressive disease linked to lifestyle factors and obesity, when the pancreas gradually produces less insulin, which in early stages means it can be controlled by diet but later may also require insulin injections; the symptoms of diabetes include high blood glucose, glucose in the urine, lethargy and thirst; possible long-term effects of diabetes include eye damage, kidney failure, heart disease and strokes; and the number of people with diabetes in the population is rising and evaluate why.",
+    "keywords": [
+      "diabetes",
+      "Type 1 diabetes",
+      "Type 2 diabetes",
+      "insulin",
+      "blood glucose",
+      "obesity",
+      "lifestyle factors"
+    ],
+    "word_count": 126
+  },
+  {
+    "id": "unit1_topic6_obj8",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "describe the gross structure of the excretory system, including the kidney (renal artery, renal vein, cortex, medulla and pelvis only), ureters, bladder and urethra",
+    "content": "Students should be able to: describe the gross structure of the excretory system, including the kidney (renal artery, renal vein, cortex, medulla and pelvis only, no detail of the nephron needed), ureters, bladder and urethra.",
+    "keywords": [
+      "excretory system",
+      "kidney",
+      "renal artery",
+      "renal vein",
+      "ureter",
+      "bladder",
+      "urethra"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit1_topic6_obj9",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "demonstrate knowledge and understanding of the kidney's homeostatic role in maintaining water balance in the body (osmoregulation), including sources of water gain and loss",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the kidney's homeostatic role in maintaining water balance in the body (osmoregulation), limited to: water gained through intake of food and drink and the production of water by respiration; water lost through evaporation of sweat, evaporation during breathing and the production of urine by the kidney; and the role of the kidney in filtering the blood and controlling the reabsorption of water.",
+    "keywords": [
+      "osmoregulation",
+      "kidney",
+      "water balance",
+      "urine",
+      "reabsorption",
+      "homeostasis"
+    ],
+    "word_count": 75
+  },
+  {
+    "id": "unit1_topic6_obj10",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "explain the role of antidiuretic hormone (ADH) as a hormone that causes the kidney to reabsorb more water and so reduce the volume of urine production",
+    "content": "Students should be able to: explain the role of antidiuretic hormone (ADH) as a hormone that causes the kidney to reabsorb more water and so reduce the volume of urine production (negative feedback not required).",
+    "keywords": [
+      "ADH",
+      "antidiuretic hormone",
+      "kidney",
+      "water reabsorption",
+      "urine volume",
+      "hormone"
+    ],
+    "word_count": 37
+  },
+  {
+    "id": "unit1_topic6_obj11",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "explain how plant hormones are important in controlling and co-ordinating plant growth and development, referring to phototropism in stems as a differential growth of cells caused by uneven distribution of the hormone auxin in response to unidirectional light",
+    "content": "Students should be able to: explain how plant hormones are important in controlling and co-ordinating plant growth and development, referring to phototropism in stems as a differential growth of cells caused by uneven distribution of the hormone auxin in response to unidirectional light.",
+    "keywords": [
+      "plant hormones",
+      "auxin",
+      "phototropism",
+      "differential growth",
+      "unidirectional light",
+      "plant growth"
+    ],
+    "word_count": 44
+  },
+  {
+    "id": "unit1_topic6_obj12",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nervous System and Hormones",
+    "topic_slug": "nervous-system-and-hormones",
+    "objective": "extend knowledge and understanding of phototropism, including auxin produced at the tip of the shoot, auxin moving down the shoot, light causing uneven distribution of auxin, and auxin causing cell elongation which results in bending of the shoot",
+    "content": "Students should be able to: extend their knowledge and understanding of phototropism, including: auxin produced at the tip of the shoot; auxin moving down the shoot; light causing uneven distribution of auxin; and auxin causing cell elongation, which results in bending of the shoot.",
+    "keywords": [
+      "phototropism",
+      "auxin",
+      "shoot tip",
+      "cell elongation",
+      "shoot bending",
+      "uneven distribution"
+    ],
+    "word_count": 45
+  },
+  {
+    "id": "unit1_topic7_obj1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding of the terms biodiversity, population, habitat, environment, community and ecosystem",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the terms biodiversity, population, habitat, environment, community and ecosystem.",
+    "keywords": [
+      "biodiversity",
+      "population",
+      "habitat",
+      "environment",
+      "community",
+      "ecosystem"
+    ],
+    "word_count": 20
+  },
+  {
+    "id": "unit1_topic7_obj2",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "measure biotic and abiotic factors such as wind speed, water, pH, light, temperature and biodiversity and explain how they affect communities",
+    "content": "Students should be able to: measure biotic and abiotic factors such as wind speed, water, pH, light, temperature and biodiversity (the number of plant and animal species) and explain how they affect communities.",
+    "keywords": [
+      "abiotic factors",
+      "biotic factors",
+      "wind speed",
+      "pH",
+      "light intensity",
+      "temperature",
+      "biodiversity"
+    ],
+    "word_count": 35
+  },
+  {
+    "id": "unit1_topic7_obj3",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "describe how to use quadrats to investigate changes in the distribution and population of organisms within a sample area of a habitat, limited to belt transect and random sampling",
+    "content": "Students should be able to: describe how to use quadrats to investigate changes in the distribution and population of organisms within a sample area of a habitat, limited to belt transect and random sampling. Students should also: use quadrats to investigate the abundance of plants and/or animals in a habitat (Prescribed Practical B4).",
+    "keywords": [
+      "quadrats",
+      "belt transect",
+      "random sampling",
+      "distribution",
+      "population",
+      "habitat sampling"
+    ],
+    "word_count": 54
+  },
+  {
+    "id": "unit1_topic7_obj4",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "account for the distribution of plants and animals by describing how organisms have adapted to their environment and the competition for resources \u2014 water, light, space and minerals in plants and water, food, territory, mates and predators in animals \u2014 and how humans influence the normal balance of ecosystems",
+    "content": "Students should be able to: account for the distribution of plants and animals by describing how the organisms found have adapted to their environment and the competition for resources \u2013 water, light, space and minerals in plants and water, food, territory, mates and predators in animals \u2013 that can affect population growth and how humans influence the normal balance of ecosystems.",
+    "keywords": [
+      "adaptation",
+      "competition",
+      "resources",
+      "population growth",
+      "ecosystem balance",
+      "human influence"
+    ],
+    "word_count": 60
+  },
+  {
+    "id": "unit1_topic7_obj5",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding that the Sun is the source of energy for most ecosystems on Earth and demonstrate understanding of the role of green plants as producers in capturing this energy and making it available to other organisms",
+    "content": "Students should be able to: demonstrate knowledge and understanding that the Sun is the source of energy for most ecosystems on Earth and demonstrate understanding of the role of green plants as producers in capturing this energy and making it available to other organisms.",
+    "keywords": [
+      "Sun",
+      "energy source",
+      "producers",
+      "green plants",
+      "ecosystem",
+      "energy transfer"
+    ],
+    "word_count": 44
+  },
+  {
+    "id": "unit1_topic7_obj6",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding of food chains and webs by identifying producers and consumers, describing the differences between trophic levels, and understanding that arrows represent consumption and the transfer of substances and energy through the ecosystem",
+    "content": "Students should be able to: demonstrate knowledge and understanding of food chains and webs by: identifying producers and consumers; describing the differences between the trophic levels; and understanding that arrows represent consumption and the transfer of substances (carbon and nitrogen) and energy through the ecosystem.",
+    "keywords": [
+      "food chain",
+      "food web",
+      "producers",
+      "consumers",
+      "trophic levels",
+      "energy transfer",
+      "carbon",
+      "nitrogen"
+    ],
+    "word_count": 47
+  },
+  {
+    "id": "unit1_topic7_obj7",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding of the decomposing action of saprophytic fungi and bacteria, including secretion of enzymes, extracellular digestion and absorption, recycling nutrients through the abiotic and biotic components of the ecosystem, and forming humus",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the decomposing action of saprophytic fungi and bacteria, including: the secretion of enzymes, extracellular digestion and absorption; recycling nutrients through the abiotic and biotic components of the ecosystem; and forming humus.",
+    "keywords": [
+      "decomposition",
+      "saprophytic fungi",
+      "bacteria",
+      "extracellular digestion",
+      "nutrient recycling",
+      "humus"
+    ],
+    "word_count": 43
+  },
+  {
+    "id": "unit1_topic7_obj8",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "investigate the key features of the decay process (temperature and water content) and their effect on the rate of decomposition in aerobic and anaerobic environments",
+    "content": "Students should be able to: investigate the key features of the decay process (temperature and water content) and their effect on the rate of decomposition in aerobic and anaerobic environments.",
+    "keywords": [
+      "decay",
+      "decomposition rate",
+      "temperature",
+      "water content",
+      "aerobic",
+      "anaerobic"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit1_topic7_obj9",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding of the significance of photosynthesis, respiration, combustion, fossilisation, feeding, excretion, egestion and decomposition in the carbon cycle, and how substances are constantly removed from and returned to the environment",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the significance of photosynthesis, respiration, combustion, fossilisation, feeding, excretion, egestion and decomposition in the carbon cycle, and how substances are constantly removed from and returned to the environment.",
+    "keywords": [
+      "carbon cycle",
+      "photosynthesis",
+      "respiration",
+      "combustion",
+      "fossilisation",
+      "decomposition",
+      "carbon dioxide"
+    ],
+    "word_count": 42
+  },
+  {
+    "id": "unit1_topic7_obj10",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding of the role that microorganisms have in the nitrogen cycle, including nitrogen fixation, nitrification, denitrification and decomposition, and apply this to aerobic and anaerobic conditions, for example waterlogging",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the role that microorganisms have in the nitrogen cycle, including nitrogen fixation, nitrification, denitrification and decomposition (knowledge of the names of specific bacteria is not required) and apply this to aerobic and anaerobic conditions, for example waterlogging.",
+    "keywords": [
+      "nitrogen cycle",
+      "nitrogen fixation",
+      "nitrification",
+      "denitrification",
+      "microorganisms",
+      "waterlogging"
+    ],
+    "word_count": 48
+  },
+  {
+    "id": "unit1_topic7_obj11",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "demonstrate knowledge and understanding that plants absorb minerals from the soil through root hair cells by active uptake/transport, including absorption of nitrates for proteins, root hair cells as specialised cells, and active uptake as a process requiring energy from respiration to transport minerals against a concentration gradient",
+    "content": "Students should be able to: demonstrate knowledge and understanding that plants absorb minerals from the soil through root hair cells by active uptake/transport, including: absorption of nitrates for proteins; root hair cells as specialised cells that are adapted to absorbing minerals and water from the soil by having an extended shape, providing an increased surface area; and active uptake/transport is a process that requires energy from respiration to transport the minerals against a concentration gradient.",
+    "keywords": [
+      "root hair cells",
+      "active transport",
+      "nitrates",
+      "minerals",
+      "concentration gradient",
+      "surface area",
+      "respiration"
+    ],
+    "word_count": 76
+  },
+  {
+    "id": "unit1_topic7_obj12",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "explain how sewage disposal and fertiliser run-off can cause eutrophication, including nitrates stimulating algal growth, plants and algae dying due to nitrate depletion and shading, the role of aerobic microorganisms in decomposition, and the consequences of oxygen depletion on other aquatic organisms",
+    "content": "Students should be able to: explain how sewage disposal and fertiliser run-off can cause eutrophication, including: nitrates stimulating growth of aquatic plants and algae; aquatic plants and algae dying due to subsequent nitrate depletion and shading; the role of aerobic microorganisms in the decomposition of plants and algae; and the consequences of oxygen depletion on other aquatic vertebrates and invertebrates.",
+    "keywords": [
+      "eutrophication",
+      "nitrates",
+      "algal bloom",
+      "oxygen depletion",
+      "sewage",
+      "fertiliser run-off",
+      "aerobic microorganisms"
+    ],
+    "word_count": 62
+  },
+  {
+    "id": "unit2_topic1_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "investigate the process of osmosis by measuring the change in length or mass of plant tissue or model cells, using Visking tubing",
+    "content": "Students should be able to: investigate the process of osmosis by measuring the change in length or mass of plant tissue or model cells, using Visking tubing (Prescribed Practical B5).",
+    "keywords": [
+      "osmosis",
+      "Visking tubing",
+      "plant tissue",
+      "mass change",
+      "length change",
+      "concentration"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit2_topic1_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "identify changes in plant cell structure that occur in plasmolysed and turgid cells due to osmosis",
+    "content": "Students should be able to: identify changes in plant cell structure that occur in plasmolysed and turgid cells due to osmosis (linked to 1.1.3).",
+    "keywords": [
+      "plasmolysis",
+      "turgidity",
+      "osmosis",
+      "plant cell",
+      "cell structure"
+    ],
+    "word_count": 25
+  },
+  {
+    "id": "unit2_topic1_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "explain osmosis as diffusion of water molecules from a dilute solution to a more concentrated solution, through a selectively permeable membrane",
+    "content": "Students should be able to: explain osmosis as diffusion of water molecules from a dilute solution to a more concentrated solution, through a selectively permeable membrane.",
+    "keywords": [
+      "osmosis",
+      "diffusion",
+      "water molecules",
+      "selectively permeable membrane",
+      "concentration gradient"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit2_topic1_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "explain how osmosis causes plant cells to become plasmolysed and turgid and demonstrate knowledge and understanding of the role of the cell wall in limiting the entry of water",
+    "content": "Students should be able to: explain how osmosis causes plant cells to become plasmolysed and turgid and demonstrate knowledge and understanding of the role of the cell wall in limiting the entry of water.",
+    "keywords": [
+      "plasmolysis",
+      "turgidity",
+      "osmosis",
+      "cell wall",
+      "water entry",
+      "plant cell"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit2_topic1_obj5",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "use a potometer (bubble and weight potometer) to investigate the factors affecting the rate of water uptake by a plant and washing line method to investigate the factors affecting the rate of water loss from leaves",
+    "content": "Students should be able to: use a potometer (bubble and weight potometer) to investigate the factors affecting the rate of water uptake by a plant and washing line method to investigate the factors affecting the rate of water loss from leaves (Prescribed Practical B6).",
+    "keywords": [
+      "potometer",
+      "water uptake",
+      "transpiration",
+      "bubble potometer",
+      "weight potometer",
+      "washing line method"
+    ],
+    "word_count": 45
+  },
+  {
+    "id": "unit2_topic1_obj6",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "define transpiration as evaporation from mesophyll cells followed by diffusion through airspaces and stomata",
+    "content": "Students should be able to: define transpiration as evaporation from mesophyll cells followed by diffusion through airspaces and stomata (linked to 1.2.6).",
+    "keywords": [
+      "transpiration",
+      "evaporation",
+      "mesophyll cells",
+      "stomata",
+      "airspaces",
+      "diffusion"
+    ],
+    "word_count": 24
+  },
+  {
+    "id": "unit2_topic1_obj7",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "explain how surface area, wind, temperature, humidity and light intensity affect transpiration and the rate of water uptake by a plant",
+    "content": "Students should be able to: explain how surface area, wind, temperature, humidity and light intensity affect transpiration and the rate of water uptake by a plant (linked to 1.2.6).",
+    "keywords": [
+      "transpiration rate",
+      "surface area",
+      "wind",
+      "temperature",
+      "humidity",
+      "light intensity"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit2_topic1_obj8",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Osmosis and Plant Transport",
+    "topic_slug": "osmosis-and-plant-transport",
+    "objective": "demonstrate knowledge and understanding that plants use water for support, transport, transpiration and photosynthesis",
+    "content": "Students should be able to: demonstrate knowledge and understanding that plants use water for support, transport, transpiration and photosynthesis.",
+    "keywords": [
+      "water",
+      "plant support",
+      "transport",
+      "transpiration",
+      "photosynthesis"
+    ],
+    "word_count": 20
+  },
+  {
+    "id": "unit2_topic2_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "use a microscope to examine a blood smear, identify the component parts and demonstrate understanding of their function, including red cells, white cells, platelets and plasma",
+    "content": "Students should be able to: use a microscope to examine a blood smear, identify the component parts and demonstrate understanding of their function: red cells are a specialised cell adapted to oxygen transport \u2013 biconcave shape, absence of nucleus and haemoglobin containing iron; white cells are a defence against disease; platelets have a role in converting fibrinogen to fibrin, causing blood clotting and scab formation; and plasma transports cells, food molecules, carbon dioxide, hormones and urea.",
+    "keywords": [
+      "red blood cells",
+      "white blood cells",
+      "platelets",
+      "plasma",
+      "haemoglobin",
+      "biconcave",
+      "blood clotting"
+    ],
+    "word_count": 79
+  },
+  {
+    "id": "unit2_topic2_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "demonstrate knowledge and understanding of the effect of placing red blood cells in water, causing cell lysis",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the effect of placing red blood cells in water, causing cell lysis (linked to 1.1.2 and 1.6.9).",
+    "keywords": [
+      "cell lysis",
+      "red blood cells",
+      "water",
+      "osmosis",
+      "haemolysis"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit2_topic2_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "describe the structure of blood vessels (arteries, veins and capillaries) and relate their structures to their functions, including wall thickness, presence of muscle and elastic fibres, lumen diameter and presence of valves",
+    "content": "Students should be able to: describe the structure of blood vessels (arteries, veins and capillaries) and relate their structures to their functions, including: wall thickness; presence of muscle and elastic fibres; lumen diameter; and presence of valves.",
+    "keywords": [
+      "arteries",
+      "veins",
+      "capillaries",
+      "blood vessels",
+      "lumen",
+      "elastic fibres",
+      "valves",
+      "wall thickness"
+    ],
+    "word_count": 40
+  },
+  {
+    "id": "unit2_topic2_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "demonstrate knowledge and understanding of the role of the different types of blood vessel, including arteries carrying blood under high pressure away from the heart, veins carrying blood under low pressure towards the heart with valves, and capillaries allowing the exchange of material with tissues",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the role of the different types of blood vessel, including: arteries carrying blood under high pressure away from the heart (usually oxygenated blood); veins carry (usually deoxygenated) blood under low pressure towards the heart with valves that maintain the direction of flow; and capillaries allowing the exchange of material with tissues through permeable walls.",
+    "keywords": [
+      "arteries",
+      "veins",
+      "capillaries",
+      "oxygenated blood",
+      "deoxygenated blood",
+      "blood pressure",
+      "valves"
+    ],
+    "word_count": 67
+  },
+  {
+    "id": "unit2_topic2_obj5",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "name and demonstrate knowledge and understanding of the functions of blood vessels entering and leaving the heart, lungs, liver, kidneys and intestine, describing the sequence and direction of flow in double circulation of oxygenated and deoxygenated blood",
+    "content": "Students should be able to: name and demonstrate knowledge and understanding of the functions of blood vessels entering and leaving the heart, lungs, liver, kidneys and intestine, describing the sequence and direction of flow in double circulation of oxygenated and deoxygenated blood.",
+    "keywords": [
+      "double circulation",
+      "oxygenated blood",
+      "deoxygenated blood",
+      "heart",
+      "lungs",
+      "blood flow",
+      "circulation"
+    ],
+    "word_count": 43
+  },
+  {
+    "id": "unit2_topic2_obj6",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "investigate the effects of exercise on the pulse rate and describe how the circulatory system benefits from regular exercise \u2014 strengthened heart muscle and increased cardiac output when at rest",
+    "content": "Students should be able to: investigate the effects of exercise on the pulse rate and describe how the circulatory system benefits from regular exercise \u2013 strengthened heart muscle and increased cardiac output when at rest.",
+    "keywords": [
+      "pulse rate",
+      "exercise",
+      "heart muscle",
+      "cardiac output",
+      "circulatory system",
+      "fitness"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit2_topic2_obj7",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "The Circulatory System",
+    "topic_slug": "the-circulatory-system",
+    "objective": "examine the heart and relate its structures to the function of a unidirectional pump, including identifying the four chambers, valves, thickness of muscle wall and coronary blood vessels",
+    "content": "Students should be able to: examine the heart and relate its structures to the function of a unidirectional pump, including identifying the four chambers, valves, thickness of muscle wall and coronary blood vessels.",
+    "keywords": [
+      "heart",
+      "chambers",
+      "valves",
+      "coronary vessels",
+      "muscle wall",
+      "unidirectional pump"
+    ],
+    "word_count": 35
+  },
+  {
+    "id": "unit2_topic3_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "demonstrate knowledge and understanding of the structure and function of the male reproductive system, including the testes, urethra, scrotum, penis, sperm tube and prostate gland",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the structure and function of the male reproductive system, including the testes, urethra, scrotum, penis, sperm tube and prostate gland.",
+    "keywords": [
+      "male reproductive system",
+      "testes",
+      "urethra",
+      "scrotum",
+      "penis",
+      "prostate gland",
+      "sperm tube"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit2_topic3_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "demonstrate knowledge and understanding of the structure and function of the female reproductive system, including the ovaries, oviducts, uterus, cervix and vagina",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the structure and function of the female reproductive system, including the ovaries, oviducts, uterus, cervix and vagina.",
+    "keywords": [
+      "female reproductive system",
+      "ovaries",
+      "oviducts",
+      "uterus",
+      "cervix",
+      "vagina"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit2_topic3_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "demonstrate knowledge and understanding of sperm cell formation, fertilisation, early development and the role of the placenta during pregnancy",
+    "content": "Students should be able to: demonstrate knowledge and understanding that: sperm cells are specialised cells (linked to 1.1.5) formed by meiosis and are adapted to their function by having a haploid nucleus, mitochondria for energy production (linked to 1.1.2) and a flagellum for swimming; fertilisation takes place in the oviducts when the haploid sperm and egg nuclei fuse to give a diploid zygote; the zygote divides by mitosis many times to form a ball of cells as it travels down the oviduct to the uterus; after implantation in the uterus lining, the embryo then differentiates to produce a variety of tissues and organs; the placenta is adapted for diffusion by having a large surface area for exchanging dissolved nutrients, oxygen, carbon dioxide and urea and explain the role of villi in providing these adaptations; these substances are carried to or from the foetus in the blood vessels in the umbilical cord; and the amnion and amniotic fluid cushion the foetus.",
+    "keywords": [
+      "sperm cell",
+      "fertilisation",
+      "zygote",
+      "mitosis",
+      "placenta",
+      "villi",
+      "umbilical cord",
+      "meiosis"
+    ],
+    "word_count": 161
+  },
+  {
+    "id": "unit2_topic3_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "demonstrate knowledge and understanding that testosterone, produced by the testes, and oestrogen, produced by the ovaries, are sex hormones and recall the secondary sexual characteristics they cause to develop",
+    "content": "Students should be able to: demonstrate knowledge and understanding that testosterone, produced by the testes, and oestrogen, produced by the ovaries, are sex hormones (linked to 1.6.6) and recall the secondary sexual characteristics they cause to develop.",
+    "keywords": [
+      "testosterone",
+      "oestrogen",
+      "sex hormones",
+      "secondary sexual characteristics",
+      "testes",
+      "ovaries"
+    ],
+    "word_count": 38
+  },
+  {
+    "id": "unit2_topic3_obj5",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "describe the events of the menstrual cycle, including menstruation, ovulation, the time when fertilisation is most likely to occur and the roles of oestrogen and progesterone",
+    "content": "Students should be able to: describe the events of the menstrual cycle, including menstruation, ovulation, the time when fertilisation is most likely to occur and the roles of oestrogen and progesterone.",
+    "keywords": [
+      "menstrual cycle",
+      "menstruation",
+      "ovulation",
+      "oestrogen",
+      "progesterone",
+      "fertilisation"
+    ],
+    "word_count": 32
+  },
+  {
+    "id": "unit2_topic3_obj6",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "explain some of the causes of infertility and the following developments in fertility treatment: the use of hormones to produce multiple ova, in vitro fertilisation, and the transfer of several embryos into the uterus",
+    "content": "Students should be able to: explain some of the causes of infertility and the following developments in fertility treatment: the use of hormones to produce multiple ova; in vitro fertilisation; and the transfer of several embryos into the uterus.",
+    "keywords": [
+      "infertility",
+      "IVF",
+      "in vitro fertilisation",
+      "fertility treatment",
+      "hormones",
+      "multiple ova",
+      "embryo transfer"
+    ],
+    "word_count": 40
+  },
+  {
+    "id": "unit2_topic3_obj7",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Reproduction, Fertility and Contraception",
+    "topic_slug": "reproduction-fertility-and-contraception",
+    "objective": "examine how different methods of contraception work and evaluate the advantages and disadvantages of each, including mechanical (condom), chemical (pill and implants) and surgical methods, and awareness that contraception can raise ethical issues",
+    "content": "Students should be able to: examine how different methods of contraception work and evaluate the advantages and disadvantages of each, including: mechanical \u2013 the condom (male and female) as a barrier to prevent the passage of sperm and also prevent the spread of sexually transmitted infections (such as HIV leading to AIDS) some of which can lead to infertility if left untreated, for example chlamydia; chemical \u2013 the contraceptive pill and implants, which change hormone levels and stop the development of the ovum; surgical \u2013 male and female sterilisation to prevent the passage of sperm and ova respectively; and an awareness that contraception can raise ethical issues for some people.",
+    "keywords": [
+      "contraception",
+      "condom",
+      "contraceptive pill",
+      "sterilisation",
+      "STI",
+      "HIV",
+      "chlamydia",
+      "ethical issues"
+    ],
+    "word_count": 112
+  },
+  {
+    "id": "unit2_topic4_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "describe the genome as the entire genetic material of an organism",
+    "content": "Students should be able to: describe the genome as the entire genetic material of an organism.",
+    "keywords": [
+      "genome",
+      "genetic material",
+      "organism",
+      "DNA"
+    ],
+    "word_count": 16
+  },
+  {
+    "id": "unit2_topic4_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "identify and describe chromosomes as genetic structures occurring in functional pairs in the nucleus of cells, except gametes and bacteria",
+    "content": "Students should be able to: identify and describe chromosomes as genetic structures occurring in functional pairs in the nucleus of cells, except gametes and bacteria (linked to 1.1.2 and 1.1.4).",
+    "keywords": [
+      "chromosomes",
+      "nucleus",
+      "functional pairs",
+      "gametes",
+      "bacteria",
+      "genetic structures"
+    ],
+    "word_count": 31
+  },
+  {
+    "id": "unit2_topic4_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "identify and describe genes and alleles as sections of chromosomes made up of short lengths of DNA that operate as functional units to control characteristics, and demonstrate understanding that alleles are different forms of the same gene",
+    "content": "Students should be able to: identify and describe genes and alleles as sections of chromosomes made up of short lengths of DNA that operate as functional units to control characteristics and demonstrate understanding that alleles are different forms of the same gene.",
+    "keywords": [
+      "genes",
+      "alleles",
+      "DNA",
+      "chromosomes",
+      "characteristics",
+      "functional units"
+    ],
+    "word_count": 43
+  },
+  {
+    "id": "unit2_topic4_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of the structure of DNA, including a phosphate and sugar (deoxyribose) backbone with interlinking bases to form a double helix, base pairing rules, and the link between the DNA code and the build-up of amino acids in the correct sequence to form protein",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the structure of DNA, including: a phosphate and sugar (deoxyribose) backbone with interlinking bases to form a double helix; base pairing rules and the unique nature of an individual's DNA; and the link between the DNA code and the build-up of amino acids in the correct sequence to form protein: the base triplet hypothesis (transcription and translation not required).",
+    "keywords": [
+      "DNA structure",
+      "double helix",
+      "deoxyribose",
+      "base pairing",
+      "amino acids",
+      "base triplet",
+      "protein synthesis"
+    ],
+    "word_count": 72
+  },
+  {
+    "id": "unit2_topic4_obj5",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of mitosis as part of the cell cycle, limited to cell growth and cell division, which allows organisms to grow, replace worn out cells and repair damaged tissue",
+    "content": "Students should be able to: demonstrate knowledge and understanding of mitosis as part of the cell cycle, limited to cell growth and cell division, which allows organisms to: grow; replace worn out cells; and repair damaged tissue.",
+    "keywords": [
+      "mitosis",
+      "cell cycle",
+      "cell division",
+      "cell growth",
+      "tissue repair",
+      "replacement"
+    ],
+    "word_count": 38
+  },
+  {
+    "id": "unit2_topic4_obj6",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "outline mitosis as the exact duplication of chromosomes producing daughter cells that are genetically identical to parent cells and clones",
+    "content": "Students should be able to: outline mitosis as the exact duplication of chromosomes producing daughter cells that are genetically identical to parent cells and clones (names of phases and details of DNA replication not required).",
+    "keywords": [
+      "mitosis",
+      "chromosome duplication",
+      "daughter cells",
+      "clones",
+      "genetically identical"
+    ],
+    "word_count": 36
+  },
+  {
+    "id": "unit2_topic4_obj7",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of meiosis as reduction division producing four genetically different, haploid daughter cells, and as a process that, through independent assortment, reassorts the chromosomes to provide variation",
+    "content": "Students should be able to: demonstrate knowledge and understanding of meiosis as reduction division (one cell producing four genetically different, haploid daughter cells) and as a process that, through independent assortment, reassorts the chromosomes to provide variation (crossing over and the stages of meiosis are not required).",
+    "keywords": [
+      "meiosis",
+      "reduction division",
+      "haploid",
+      "independent assortment",
+      "genetic variation",
+      "gametes"
+    ],
+    "word_count": 49
+  },
+  {
+    "id": "unit2_topic4_obj8",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of and interpret genetic diagrams consisting of a single characteristic controlled by a single gene with two alleles (monohybrid cross), including dominant and recessive alleles, genotype, phenotype, gamete and offspring ratios, Punnett squares, test crosses and pedigree diagrams",
+    "content": "Students should be able to: demonstrate knowledge and understanding of and interpret genetic diagrams consisting of a single characteristic controlled by a single gene with two alleles (monohybrid cross) in plants, animals and humans, including: dominant and recessive alleles; genotype, phenotype, gamete and offspring ratios, percentages and probabilities; homozygous and heterozygous genotypes; Punnett squares to determine genotype frequencies; test (back) crosses to determine an unknown genotype; and pedigree diagrams.",
+    "keywords": [
+      "monohybrid cross",
+      "dominant",
+      "recessive",
+      "genotype",
+      "phenotype",
+      "Punnett square",
+      "pedigree diagram",
+      "test cross"
+    ],
+    "word_count": 74
+  },
+  {
+    "id": "unit2_topic4_obj9",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of how sex is determined in humans",
+    "content": "Students should be able to: demonstrate knowledge and understanding of how sex is determined in humans.",
+    "keywords": [
+      "sex determination",
+      "X chromosome",
+      "Y chromosome",
+      "sex chromosomes",
+      "humans"
+    ],
+    "word_count": 15
+  },
+  {
+    "id": "unit2_topic4_obj10",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of and explain the inheritance of genetic conditions: haemophilia, cystic fibrosis, Huntington's disease and Down's syndrome",
+    "content": "Students should be able to: demonstrate knowledge and understanding of and explain the inheritance of these genetic conditions: haemophilia; cystic fibrosis; Huntington's disease; and Down's syndrome.",
+    "keywords": [
+      "haemophilia",
+      "cystic fibrosis",
+      "Huntington's disease",
+      "Down's syndrome",
+      "genetic conditions",
+      "inheritance"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit2_topic4_obj11",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "explore the increasing understanding of the human genome and evaluate associated ethical issues of genetic screening, including who decides who will be tested, benefits and risks of amniocentesis compared to blood tests, the dilemma for carriers, and making genetic information available to wider society",
+    "content": "Students should be able to: explore the increasing understanding of the human genome and evaluate associated ethical issues of genetic screening, including: who decides who will be tested; benefits and risks of amniocentesis compared to blood tests; the dilemma for carriers of genetic conditions after a test that diagnoses abnormalities; and making genetic information available to wider society, for example insurance companies.",
+    "keywords": [
+      "genetic screening",
+      "human genome",
+      "amniocentesis",
+      "ethical issues",
+      "carriers",
+      "genetic information"
+    ],
+    "word_count": 62
+  },
+  {
+    "id": "unit2_topic4_obj12",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Genome, Chromosomes, Genes, DNA and Genetics",
+    "topic_slug": "genome-chromosomes-genes-dna-and-genetics",
+    "objective": "demonstrate knowledge and understanding of genetic engineering as a process that modifies the genome of an organism to introduce desirable characteristics, including the production of human insulin and the use of restriction enzymes to produce sticky ends",
+    "content": "Students should be able to: demonstrate knowledge and understanding of genetic engineering as a process that modifies the genome of an organism to introduce desirable characteristics, including: the basic techniques used to produce human insulin for treatment of diabetes (transfer of a human insulin gene into a plasmid of a bacterial cell to form a genetically modified bacterium that can then be cultured in a fermenter to produce human insulin); using restriction enzymes to produce 'sticky ends'; the need for down streaming (extraction, purification and packaging) to produce a pure form of insulin that can be used to treat diabetes; and the advantages of producing human insulin and other products by this method.",
+    "keywords": [
+      "genetic engineering",
+      "human insulin",
+      "restriction enzymes",
+      "plasmid",
+      "sticky ends",
+      "genetically modified",
+      "fermenter"
+    ],
+    "word_count": 117
+  },
+  {
+    "id": "unit2_topic5_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Variation and Natural Selection",
+    "topic_slug": "variation-and-natural-selection",
+    "objective": "investigate variation in living things and display data using appropriate graphical techniques, including height and length as examples of continuous variation (histogram), and tongue rolling and hand dominance as examples of discontinuous variation (bar chart)",
+    "content": "Students should be able to: investigate variation in living things and display data using appropriate graphical techniques, including: height and length as examples of continuous variation (histogram); and tongue rolling and hand dominance as examples of discontinuous variation (bar chart).",
+    "keywords": [
+      "variation",
+      "continuous variation",
+      "discontinuous variation",
+      "histogram",
+      "bar chart",
+      "tongue rolling"
+    ],
+    "word_count": 43
+  },
+  {
+    "id": "unit2_topic5_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Variation and Natural Selection",
+    "topic_slug": "variation-and-natural-selection",
+    "objective": "demonstrate knowledge and understanding that variation in living organisms has a genetic basis (mutations and sexual reproduction) and an environmental basis influencing the development of a phenotype",
+    "content": "Students should be able to: demonstrate knowledge and understanding that variation in living organisms has: a genetic basis \u2013 mutations (random changes in the number of chromosomes or the structure of a gene) and sexual reproduction produce different phenotypes in a population; and an environmental basis influencing the development of a phenotype (for example height in humans).",
+    "keywords": [
+      "genetic variation",
+      "mutation",
+      "sexual reproduction",
+      "environmental variation",
+      "phenotype",
+      "chromosomes"
+    ],
+    "word_count": 58
+  },
+  {
+    "id": "unit2_topic5_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Variation and Natural Selection",
+    "topic_slug": "variation-and-natural-selection",
+    "objective": "demonstrate knowledge and understanding of how variation and natural selection may lead to evolution or extinction, including variation in phenotypes, competition for resources, differential survival, surviving phenotypes reproducing, and the theory of evolution as a continuing process of natural selection that may lead to new species",
+    "content": "Students should be able to: demonstrate knowledge and understanding of how variation and natural selection may lead to evolution or extinction, including: variation in the phenotypes of a population; competition for resources often leading to differential survival of the best adapted phenotypes, for example antibiotic resistance; surviving phenotypes are more likely to reproduce and pass on their genes to the next generation; the theory of evolution as a continuing process of natural selection that leads to gradual changes in organisms over time, which may result in the formation of a new species; and extinction of a species over time as a consequence of failure to adapt to environmental change.",
+    "keywords": [
+      "natural selection",
+      "evolution",
+      "extinction",
+      "phenotype",
+      "differential survival",
+      "antibiotic resistance",
+      "adaptation"
+    ],
+    "word_count": 112
+  },
+  {
+    "id": "unit2_topic5_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Variation and Natural Selection",
+    "topic_slug": "variation-and-natural-selection",
+    "objective": "explain selective breeding in food plants and domesticated animals as a process in which humans select individual plants or animals for their desirable genetic characteristics and breed them over many generations to produce offspring with the desired characteristic",
+    "content": "Students should be able to: explain selective breeding in food plants and domesticated animals as a process in which: humans select individual plants or animals for their desirable genetic characteristics, for example appearance, increased food quantity or quality or disease resistance, and breed them to produce offspring; and repeated selection and breeding over many generations causes all the offspring to show the desired characteristic.",
+    "keywords": [
+      "selective breeding",
+      "desirable characteristics",
+      "food plants",
+      "domesticated animals",
+      "disease resistance",
+      "generations"
+    ],
+    "word_count": 64
+  },
+  {
+    "id": "unit2_topic6_obj1",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "define health as being free from communicable and non-communicable disease",
+    "content": "Students should be able to: define health as being free from communicable and non-communicable disease.",
+    "keywords": [
+      "health",
+      "communicable disease",
+      "non-communicable disease"
+    ],
+    "word_count": 15
+  },
+  {
+    "id": "unit2_topic6_obj2",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "explain the costs to society of communicable and non-communicable diseases, including the economic cost of treatment for the National Health Service",
+    "content": "Students should be able to: explain the costs to society of communicable and non-communicable diseases, including the economic cost of treatment for the National Health Service.",
+    "keywords": [
+      "communicable disease",
+      "non-communicable disease",
+      "economic cost",
+      "NHS",
+      "National Health Service"
+    ],
+    "word_count": 28
+  },
+  {
+    "id": "unit2_topic6_obj3",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "demonstrate knowledge and understanding of the types of communicable diseases caused by microorganisms, how they are spread, prevented and treated, including bacteria (chlamydia, salmonella and tuberculosis), viruses (HIV/AIDS, cold, flu and HPV) and fungi (athlete's foot and potato blight)",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the types of communicable diseases caused by microorganisms, how they are spread, prevented and treated, including: bacteria (chlamydia, salmonella and tuberculosis); viruses (HIV leading to AIDS, cold and flu and human papilloma virus (HPV)); and fungi (athlete's foot and potato blight).",
+    "keywords": [
+      "communicable diseases",
+      "bacteria",
+      "viruses",
+      "fungi",
+      "HIV",
+      "tuberculosis",
+      "chlamydia",
+      "HPV"
+    ],
+    "word_count": 55
+  },
+  {
+    "id": "unit2_topic6_obj4",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "safely use aseptic techniques to grow uncontaminated colonies of bacteria in nutrient broth or on an agar plate, including sterilising equipment, inoculation procedures, incubation conditions and safe disposal",
+    "content": "Students should be able to: safely use aseptic techniques to grow uncontaminated colonies of bacteria in nutrient broth or on an agar plate, including: sterilising Petri dishes, culture media, inoculating loops and culture bottles by autoclaving, flaming and alcohol to kill unwanted microorganisms; needing to keep Petri dishes partially covered and to work near a Bunsen burner during inoculation to reduce the risk of contamination by microorganisms from the air; incubating sealed Petri dishes at a maximum temperature of 25\u00b0C to avoid growth of pathogens; and cleaning work surfaces and hands and safely disposing of bacterial cultures by autoclaving.",
+    "keywords": [
+      "aseptic technique",
+      "bacteria",
+      "agar plate",
+      "autoclaving",
+      "sterilisation",
+      "inoculation",
+      "contamination"
+    ],
+    "word_count": 99
+  },
+  {
+    "id": "unit2_topic6_obj5",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "demonstrate knowledge and understanding of the body's defence mechanisms, including the skin, mucous membranes and blood clotting, the production of antibodies by white blood cells (lymphocytes) in response to antigens, the role of antibodies in defence, the role of phagocytes, the role of memory lymphocytes in a secondary response, and immunity in terms of active and passive",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the body's defence mechanisms, including: the skin, mucous membranes and blood clotting; the production of antibodies by white blood cells (lymphocytes) in response to antigens; the role of antibodies in defence \u2013 antibody-antigen reaction, clumping, reduced spread of disease microorganisms and symptoms; the role of phagocytes in engulfing and digesting microorganisms; the role of memory lymphocytes in a secondary response; and immunity, in terms of active and passive.",
+    "keywords": [
+      "defence mechanisms",
+      "antibodies",
+      "lymphocytes",
+      "antigens",
+      "phagocytes",
+      "memory cells",
+      "immunity",
+      "skin"
+    ],
+    "word_count": 84
+  },
+  {
+    "id": "unit2_topic6_obj6",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "demonstrate knowledge and understanding that antibiotics, for example penicillin, are chemicals produced by fungi that are used against bacterial diseases to kill bacteria or reduce their growth",
+    "content": "Students should be able to: demonstrate knowledge and understanding that antibiotics, for example penicillin, are chemicals produced by fungi that are used against bacterial diseases to kill bacteria or reduce their growth.",
+    "keywords": [
+      "antibiotics",
+      "penicillin",
+      "fungi",
+      "bacteria",
+      "bacterial disease",
+      "antimicrobial"
+    ],
+    "word_count": 34
+  },
+  {
+    "id": "unit2_topic6_obj7",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "demonstrate knowledge and understanding of the implications on the health of the population of overuse of antibiotics leading to bacterial resistance and the development of superbugs such as MRSA, and procedures to reduce the incidence of superbugs and why they are difficult to eradicate",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the implications on the health of the population of: overuse of antibiotics leading to bacterial resistance, resulting in the development of superbugs such as MRSA; and procedures to reduce the incidence of superbugs and why they are difficult to eradicate.",
+    "keywords": [
+      "antibiotic resistance",
+      "MRSA",
+      "superbugs",
+      "overuse of antibiotics",
+      "bacterial resistance",
+      "eradication"
+    ],
+    "word_count": 52
+  },
+  {
+    "id": "unit2_topic6_obj8",
+    "unit": "Unit 2",
+    "unit_number": 2,
+    "topic": "Health, Disease, Defence Mechanisms and Treatments",
+    "topic_slug": "health-disease-defence-mechanisms-and-treatments",
+    "objective": "demonstrate knowledge and understanding of the role of vaccines, including the use of modified disease-causing organisms to produce raised antibody levels and memory lymphocyte levels in the blood, and the role of booster vaccinations and the interpretation of graphs of blood antibody levels",
+    "content": "Students should be able to: demonstrate knowledge and understanding of the role of vaccines, including: the use of modified disease-causing organisms to produce raised antibody levels and memory lymphocyte levels in the blood; and the role of booster vaccinations and the interpretation of graphs of blood antibody levels.",
+    "keywords": [
+      "vaccines",
+      "vaccination",
+      "antibody levels",
+      "memory lymphocytes",
+      "booster vaccination",
+      "immunity",
+      "modified organisms"
+    ],
+    "word_count": 50
+  },
+  {
+    "id": "unit1_topic2_pp1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Photosynthesis and Plants",
+    "topic_slug": "photosynthesis-and-plants",
+    "objective": "investigate the need for light and chlorophyll in photosynthesis by testing a leaf for starch",
+    "content": "Students should be able to: investigate the need for light and chlorophyll in photosynthesis by testing a leaf for starch (Prescribed Practical B1). This involves destarching a plant, exposing parts of leaves to different conditions (light/dark, with/without chlorophyll using a variegated leaf), then testing with iodine solution to show where starch has been produced.",
+    "keywords": [
+      "photosynthesis",
+      "starch",
+      "iodine solution",
+      "chlorophyll",
+      "light",
+      "variegated leaf",
+      "destarch"
+    ],
+    "word_count": 54
+  },
+  {
+    "id": "unit1_topic3_pp1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Nutrition and Food Tests",
+    "topic_slug": "nutrition-and-food-tests",
+    "objective": "investigate the energy content of food by burning food samples",
+    "content": "Students should be able to: investigate the energy content of food by burning food samples (Prescribed Practical B2). This involves burning a food sample beneath a known volume of water and measuring the temperature rise to calculate the energy released by the food.",
+    "keywords": [
+      "energy content",
+      "food",
+      "burning",
+      "temperature rise",
+      "calorimetry",
+      "joules"
+    ],
+    "word_count": 45
+  },
+  {
+    "id": "unit1_topic4_pp1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Enzymes and Digestion",
+    "topic_slug": "enzymes-and-digestion",
+    "objective": "investigate the effect of temperature on the action of an enzyme",
+    "content": "Students should be able to: investigate the effect of temperature on the action of an enzyme (Prescribed Practical B3). This involves measuring the rate of enzyme activity (e.g. amylase breaking down starch) at different temperatures and using the results to identify the optimum temperature and demonstrate denaturation above it.",
+    "keywords": [
+      "enzyme",
+      "temperature",
+      "optimum",
+      "amylase",
+      "starch",
+      "denaturation",
+      "rate of reaction"
+    ],
+    "word_count": 52
+  },
+  {
+    "id": "unit1_topic7_pp1",
+    "unit": "Unit 1",
+    "unit_number": 1,
+    "topic": "Ecological Relationships and Energy Flow",
+    "topic_slug": "ecological-relationships-and-energy-flow",
+    "objective": "use quadrats to investigate the abundance of plants and/or animals in a habitat",
+    "content": "Students should be able to: use quadrats to investigate the abundance of plants and/or animals in a habitat (Prescribed Practical B4). This involves placing quadrats randomly or along a belt transect within a sample area, recording the species present and their abundance, and using the data to draw conclusions about distribution and population size.",
+    "keywords": [
+      "quadrat",
+      "abundance",
+      "habitat",
+      "belt transect",
+      "random sampling",
+      "population",
+      "distribution"
+    ],
+    "word_count": 57
+  }
+]
