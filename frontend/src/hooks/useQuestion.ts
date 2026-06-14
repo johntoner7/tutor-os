@@ -9,13 +9,13 @@ export function useQuestion(sessionId: string, touchActivity: () => void, onMark
   const [marking, setMarking] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  async function getQuestion(topicSlug: string, difficulty?: string, subject = 'biology') {
+  async function getQuestion(topicSlug: string, subject = 'biology') {
     setLoading(true)
     setError(null)
     setFeedback(null)
     setQuestion(null)
     try {
-      const q = await fetchQuestion({ subject, topic_slug: topicSlug, difficulty, session_id: sessionId })
+      const q = await fetchQuestion({ subject, topic_slug: topicSlug, session_id: sessionId })
       setQuestion(q)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load question.')

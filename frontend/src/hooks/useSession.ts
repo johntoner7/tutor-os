@@ -13,7 +13,6 @@ function newId(): string {
 function initSession(): { sessionId: string; } {
   const lastActivity = localStorage.getItem(KEY_LAST_ACTIVITY)
   const existingId = localStorage.getItem(KEY_SESSION_ID)
-  const prevId = localStorage.getItem(KEY_PREV_SESSION_ID)
 
   const isStale =
     !lastActivity ||
