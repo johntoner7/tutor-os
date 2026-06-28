@@ -260,13 +260,10 @@ export default function App() {
                 error={chatError}
                 activeTopic={activeTopic}
                 activeTopicName={activeTopicName}
-                canAskQuestion={!!activeTopic}
                 questionActive={false}
                 greeting={greeting}
                 greetingLoading={greetingLoading}
                 onSend={send}
-                onRequestQuestion={() => handleSwitchMode('practice')}
-                onRequestQuiz={() => handleSwitchMode('practice', 'quiz')}
                 onOpenTopicPicker={() => setShowTopicDrawer(true)}
                 onClearTopic={handleClearTopic}
                 onTopicSelect={handleTopicSelect}

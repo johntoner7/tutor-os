@@ -23,13 +23,10 @@ interface Props {
   error: string | null
   activeTopic: string
   activeTopicName: string
-  canAskQuestion: boolean
   questionActive: boolean
   greeting: Greeting | null
   greetingLoading: boolean
   onSend: (message: string) => void
-  onRequestQuestion: () => void
-  onRequestQuiz: () => void
   onOpenTopicPicker: () => void
   onClearTopic: () => void
   onTopicSelect: (slug: string) => void
@@ -43,13 +40,10 @@ export function ChatWindow({
   error,
   activeTopic,
   activeTopicName,
-  canAskQuestion,
   questionActive,
   greeting,
   greetingLoading,
   onSend,
-  onRequestQuestion,
-  onRequestQuiz,
   onOpenTopicPicker,
   onClearTopic,
   onTopicSelect,

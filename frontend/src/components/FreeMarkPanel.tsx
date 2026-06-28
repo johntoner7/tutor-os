@@ -15,7 +15,7 @@ type Step = 'question' | 'answer'
 
 const MAX_BYTES = 4 * 1024 * 1024
 
-export function FreeMarkPanel({ sessionId, onClose }: Props) {
+export function FreeMarkPanel({ sessionId }: Props) {
   const [step, setStep] = useState<Step>('question')
   const [inputMode, setInputMode] = useState<InputMode>('text')
 
