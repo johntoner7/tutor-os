@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MessageCircle, PenLine, CheckSquare } from 'lucide-react'
+import { MessageCircle, PenLine, CheckSquare, GraduationCap } from 'lucide-react'
 import { fetchTopics } from './api/client'
 import { useAuth } from './hooks/useAuth'
 import { useGreeting } from './hooks/useGreeting'
@@ -202,7 +202,9 @@ export default function App() {
       {/* Header + tabs in one row */}
       <header className="shrink-0 bg-white border-b border-gray-100 flex items-stretch px-4 md:px-6 gap-3 h-12">
         <div className="flex items-center gap-2.5 shrink-0">
-          <img src="/pen2paperlogo.png" alt="Pen2Paper" className="w-7 h-7 object-contain" />
+          <div className="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center shrink-0">
+            <GraduationCap className="w-4 h-4 text-white" />
+          </div>
           <span className="hidden sm:block text-sm font-bold text-gray-900">CCEA Biology</span>
         </div>
 

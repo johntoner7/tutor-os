@@ -65,7 +65,7 @@ async def chat(
     text, usage = complete(
         system=prompt["system"],
         messages=prompt["messages"],
-        max_tokens=600,
+        max_tokens=1200,
         context="chat",
     )
 
