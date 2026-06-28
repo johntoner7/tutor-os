@@ -9,7 +9,6 @@ import psycopg2.pool
 
 class PostgresRepository:
     def __init__(self, database_url: str) -> None:
-        import psycopg2.pool
         self._pool = psycopg2.pool.ThreadedConnectionPool(1, 10, database_url)
 
     def _conn(self):
@@ -184,6 +183,23 @@ class PostgresRepository:
                     (session_id,),
                 )
                 return [dict(r) for r in cur.fetchall()]
+
+    def get_recent_questions_for_session(
+        self, session_id: str, topic_slug: str, limit: int = 10
+    ) -> list[str]:
+        with self._conn() as conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(
+                    """SELECT gq.question
+                       FROM activity_events ae
+                       JOIN generated_questions gq ON gq.id = ae.question_id
+                       WHERE ae.session_id = %s AND ae.topic_slug = %s
+                         AND ae.event_type = 'question_served'
+                       ORDER BY ae.timestamp DESC
+                       LIMIT %s""",
+                    (session_id, topic_slug, limit),
+                )
+                return [r["question"] for r in cur.fetchall()]
 
     def get_user_context(self, user_id: str) -> dict:
         with self._conn() as conn:

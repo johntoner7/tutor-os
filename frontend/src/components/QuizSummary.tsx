@@ -16,9 +16,10 @@ interface Props {
   sessionId: string | null
   onRetry: () => void
   onClose: () => void
+  onAskTutor?: (message: string) => void
 }
 
-export function QuizSummary({ results, topicName, topicSlug, sessionId, onRetry, onClose }: Props) {
+export function QuizSummary({ results, topicName, topicSlug, sessionId, onRetry, onClose, onAskTutor }: Props) {
   const totalAwarded = results.reduce((s, r) => s + r.marks_awarded, 0)
   const totalAvailable = results.reduce((s, r) => s + r.marks_available, 0)
   const pct = totalAvailable > 0 ? Math.round((totalAwarded / totalAvailable) * 100) : 0
@@ -70,7 +71,17 @@ export function QuizSummary({ results, topicName, topicSlug, sessionId, onRetry,
         ) : analysisError ? (
           <p className="text-xs text-red-500">{analysisError}</p>
         ) : (
-          <p className="text-sm text-gray-700 leading-relaxed">{aiAnalysis?.summary}</p>
+          <>
+            <p className="text-sm text-gray-700 leading-relaxed">{aiAnalysis?.summary}</p>
+            {pct < 70 && onAskTutor && (
+              <button
+                onClick={() => onAskTutor(`I just did a quiz on ${topicName} and scored ${pct}%. Can you explain the key concepts I need to revise?`)}
+                className="mt-3 w-full rounded-xl border border-gray-200 bg-gray-50 text-gray-600 text-sm font-medium py-2 hover:border-red-200 hover:text-red-600 hover:bg-red-50 transition-colors"
+              >
+                Get tutor help with {topicName} →
+              </button>
+            )}
+          </>
         )}
       </div>
 

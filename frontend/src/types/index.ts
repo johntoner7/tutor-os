@@ -91,6 +91,26 @@ export interface SessionSummary {
   average_score_percent: number | null
 }
 
+export interface FreeMarkRequest {
+  question: string
+  student_answer: string
+  marks_available: number
+  topic_slug?: string
+  session_id?: string | null
+  image_base64?: string
+  image_extract_answer?: boolean
+}
+
+export interface FreeMarkResponse {
+  marks_awarded: number
+  marks_available: number
+  awarded_points: string[]
+  missed_points: string[]
+  model_answer_hint: string
+  extracted_question?: string
+  extracted_answer?: string
+}
+
 export interface QuizResult {
   question: string
   marks_awarded: number

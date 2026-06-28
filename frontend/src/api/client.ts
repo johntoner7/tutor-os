@@ -1,6 +1,8 @@
 import type {
   ChatRequest,
   ChatResponse,
+  FreeMarkRequest,
+  FreeMarkResponse,
   MarkRequest,
   MarkResponse,
   MasteryResponse,
@@ -64,6 +66,14 @@ export function markAnswer(questionId: string, payload: MarkRequest, subject = '
   })
 }
 
+export function markFreeAnswer(payload: FreeMarkRequest): Promise<FreeMarkResponse> {
+  return request('/mark-free', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+}
+
 export interface GlossaryEntry {
   term: string
   definition: string
@@ -86,9 +96,10 @@ export function fetchUserMastery(): Promise<UserMasteryResponse> {
 }
 
 export interface SessionStartResponse {
-  greeting: string
   suggested_topic_slug: string | null
   suggested_topic_name: string | null
+  is_first_visit: boolean
+  days_since_last_active: number | null
 }
 
 export function fetchSessionStart(): Promise<SessionStartResponse> {

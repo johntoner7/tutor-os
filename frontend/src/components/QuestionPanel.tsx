@@ -13,16 +13,18 @@ interface Props {
   onSubmit: (answer: string) => void
   onNewQuestion: () => void
   onClose?: () => void
+  onAskTutor?: (message: string) => void
 }
 
 type Phase = 'answering' | 'result'
 
-export function QuestionPanel({ question, feedback, marking, error, quiz, onSubmit, onNewQuestion, onClose }: Props) {
+export function QuestionPanel({ question, feedback, marking, error, quiz, onSubmit, onNewQuestion, onClose, onAskTutor }: Props) {
   const parsed = useMemo(() => parseQuestion(question.question), [question.question])
   const hasStructure = parsed.parts.length > 1
   const [phase, setPhase] = useState<Phase>('answering')
   const [mode, setMode] = useState<'structured' | 'freetext'>(hasStructure ? 'structured' : 'freetext')
   const [freeAnswer, setFreeAnswer] = useState('')
+  const [showAllMissed, setShowAllMissed] = useState(false)
 
   const resultRef = useRef<HTMLDivElement>(null)
 
@@ -208,7 +210,39 @@ export function QuestionPanel({ question, feedback, marking, error, quiz, onSubm
               )
             })()}
 
+            {!quiz && onAskTutor && feedback.missed_points.length > 0 && (
+              <div className="space-y-1.5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">Ask tutor about what you missed</p>
+                {(showAllMissed ? feedback.missed_points : feedback.missed_points.slice(0, 2)).map((point, i) => (
+                  <button
+                    key={i}
+                    onClick={() => onAskTutor(`I answered a question on "${question.topic}" and missed this mark: "${point}". Can you explain it?`)}
+                    className="w-full text-left rounded-xl border border-gray-200 bg-white text-gray-600 text-sm px-3 py-2 hover:border-red-200 hover:text-red-600 hover:bg-red-50 transition-colors"
+                  >
+                    Explain: <span className="font-medium">{point}</span> →
+                  </button>
+                ))}
+                {feedback.missed_points.length > 2 && !showAllMissed && (
+                  <button
+                    onClick={() => setShowAllMissed(true)}
+                    className="text-xs text-gray-400 hover:text-gray-600 transition-colors px-1"
+                  >
+                    + {feedback.missed_points.length - 2} more
+                  </button>
+                )}
+              </div>
+            )}
+
             <div className="mt-auto flex gap-2 pb-2 shrink-0">
+              {!quiz && (
+                <button
+                  onClick={() => { setPhase('answering'); setFreeAnswer(''); setShowAllMissed(false) }}
+                  className="rounded-xl bg-white border border-gray-200 text-gray-600 text-sm font-medium py-2.5 px-4 hover:border-gray-300 active:scale-95 transition-all"
+                  title="Try this question again"
+                >
+                  ↩ Retry
+                </button>
+              )}
               <button
                 onClick={onNewQuestion}
                 className="flex-1 rounded-xl bg-red-600 text-white text-sm font-semibold py-2.5 hover:bg-red-700 active:scale-95 transition-all"
@@ -217,14 +251,6 @@ export function QuestionPanel({ question, feedback, marking, error, quiz, onSubm
                   ? quiz.current < quiz.total ? `Next →` : 'See results'
                   : 'Next question'}
               </button>
-              {!quiz && onClose && (
-                <button
-                  onClick={onClose}
-                  className="flex-1 rounded-xl bg-white border border-gray-200 text-gray-600 text-sm font-medium py-2.5 hover:border-gray-300 active:scale-95 transition-all"
-                >
-                  Back to chat
-                </button>
-              )}
             </div>
           </motion.div>
         )}

@@ -51,6 +51,26 @@ class MarkResponse(BaseModel):
     model_answer_hint: str
 
 
+class FreeMarkRequest(BaseModel):
+    question: str = Field(min_length=0, max_length=2000, default="")
+    student_answer: str = Field(min_length=0, max_length=2000, default="")
+    marks_available: int = Field(ge=1, le=20, default=1)
+    topic_slug: str | None = None
+    session_id: str | None = None
+    image_base64: str | None = None  # data URI: "data:image/jpeg;base64,..."
+    image_extract_answer: bool = False  # when True, extract student answer from image too
+
+
+class FreeMarkResponse(BaseModel):
+    marks_awarded: int
+    marks_available: int
+    awarded_points: list[str]
+    missed_points: list[str]
+    model_answer_hint: str
+    extracted_question: str | None = None
+    extracted_answer: str | None = None
+
+
 class Topic(BaseModel):
     name: str
     slug: str
@@ -86,9 +106,10 @@ class UserMasteryResponse(BaseModel):
 
 
 class SessionStartResponse(BaseModel):
-    greeting: str
     suggested_topic_slug: str | None
     suggested_topic_name: str | None
+    is_first_visit: bool
+    days_since_last_active: int | None  # None = never active
 
 
 class SessionSummary(BaseModel):

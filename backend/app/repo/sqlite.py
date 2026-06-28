@@ -206,6 +206,22 @@ class SQLiteRepository:
             ).fetchall()
         return [dict(r) for r in rows]
 
+    def get_recent_questions_for_session(
+        self, session_id: str, topic_slug: str, limit: int = 10
+    ) -> list[str]:
+        with self._conn() as conn:
+            rows = conn.execute(
+                """SELECT gq.question
+                   FROM activity_events ae
+                   JOIN generated_questions gq ON gq.id = ae.question_id
+                   WHERE ae.session_id = ? AND ae.topic_slug = ?
+                     AND ae.event_type = 'question_served'
+                   ORDER BY ae.timestamp DESC
+                   LIMIT ?""",
+                (session_id, topic_slug, limit),
+            ).fetchall()
+        return [r["question"] for r in rows]
+
     def get_user_context(self, user_id: str) -> dict:
         with self._conn() as conn:
             summary = conn.execute(

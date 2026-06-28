@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion'
-import type { SessionSummary } from '../types'
+import type { SessionSummary, Topic } from '../types'
 
 interface Props {
   summary: SessionSummary | null
   loading: boolean
   error: string | null
+  topics?: Topic[]
   onClose: () => void
+  onTopicSelect?: (slug: string) => void
 }
 
-export function SessionSummaryPanel({ summary, loading, error, onClose }: Props) {
+export function SessionSummaryPanel({ summary, loading, error, topics = [], onClose, onTopicSelect }: Props) {
+  const slugToName = Object.fromEntries(topics.map(t => [t.slug, t.name]))
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -72,12 +75,26 @@ export function SessionSummaryPanel({ summary, loading, error, onClose }: Props)
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Topics covered</p>
               <div className="flex flex-wrap gap-1.5">
-                {summary.topics_covered.map(t => (
-                  <span key={t} className="text-xs px-2.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600">
-                    {t}
-                  </span>
-                ))}
+                {summary.topics_covered.map(slug => {
+                  const name = slugToName[slug] || slug.replace(/-/g, ' ')
+                  return onTopicSelect ? (
+                    <button
+                      key={slug}
+                      onClick={() => { onTopicSelect(slug); onClose() }}
+                      className="text-xs px-2.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-red-200 hover:text-red-600 hover:bg-red-50 transition-colors"
+                    >
+                      {name} →
+                    </button>
+                  ) : (
+                    <span key={slug} className="text-xs px-2.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600">
+                      {name}
+                    </span>
+                  )
+                })}
               </div>
+              {onTopicSelect && (
+                <p className="text-xs text-gray-400 mt-1.5">Tap a topic to practise more questions on it</p>
+              )}
             </div>
           )}
         </>

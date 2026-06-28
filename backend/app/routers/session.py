@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from app import db
 from app.llm import complete
 from app.models import MasteryResponse, QuizSummaryRequest, QuizSummaryResponse, SessionStartResponse, SessionSummary, TopicMastery
-from app.prompts import build_greeting_prompt, build_quiz_summary_prompt, build_summary_prompt
+from app.prompts import build_quiz_summary_prompt, build_summary_prompt
 from app.registry import SubjectRegistry
 from app.routers.auth import get_current_user
 
@@ -71,25 +71,18 @@ async def session_start(
     )
 
     suggested_name = slug_to_name.get(suggested_slug) if suggested_slug else None
-    weakest_name = slug_to_name.get(weakest_slug) if weakest_slug else None
 
-    prompt = build_greeting_prompt(
-        context=context,
-        suggested_topic_name=suggested_name,
-        weakest_topic_name=weakest_name,
-        weakest_avg=weakest_avg,
-    )
-    greeting, _ = complete(
-        system=prompt["system"],
-        messages=prompt["messages"],
-        max_tokens=80,
-        context="greeting",
-    )
+    is_first_visit = context["total_events"] == 0
+    days_since_last_active: int | None = None
+    if context.get("last_active"):
+        delta = datetime.now(timezone.utc) - datetime.fromisoformat(context["last_active"])
+        days_since_last_active = delta.days
 
     return SessionStartResponse(
-        greeting=greeting.strip(),
         suggested_topic_slug=suggested_slug,
         suggested_topic_name=suggested_name,
+        is_first_visit=is_first_visit,
+        days_since_last_active=days_since_last_active,
     )
 
 

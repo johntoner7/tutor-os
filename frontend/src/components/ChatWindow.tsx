@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Send, BookOpen, X, MessageCircle, PenLine, Zap } from 'lucide-react'
+import { Send, X, Zap } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChatMessage } from './ChatMessage'
 import { useGlossary } from '../hooks/useGlossary'
@@ -11,6 +11,12 @@ const TOPIC_SUGGESTIONS = [
   'What happens during aerobic respiration?',
 ]
 
+interface Greeting {
+  text: string
+  suggestedTopicSlug: string | null
+  suggestedTopicName: string | null
+}
+
 interface Props {
   history: Message[]
   loading: boolean
@@ -19,6 +25,8 @@ interface Props {
   activeTopicName: string
   canAskQuestion: boolean
   questionActive: boolean
+  greeting: Greeting | null
+  greetingLoading: boolean
   onSend: (message: string) => void
   onRequestQuestion: () => void
   onRequestQuiz: () => void
@@ -26,6 +34,7 @@ interface Props {
   onClearTopic: () => void
   onTopicSelect: (slug: string) => void
   onEndSession: () => void
+  onSuggestedTopicAccept: (slug: string) => void
 }
 
 export function ChatWindow({
@@ -36,6 +45,8 @@ export function ChatWindow({
   activeTopicName,
   canAskQuestion,
   questionActive,
+  greeting,
+  greetingLoading,
   onSend,
   onRequestQuestion,
   onRequestQuiz,
@@ -43,6 +54,7 @@ export function ChatWindow({
   onClearTopic,
   onTopicSelect,
   onEndSession,
+  onSuggestedTopicAccept,
 }: Props) {
   const glossary = useGlossary()
   const [input, setInput] = useState('')
@@ -95,46 +107,72 @@ export function ChatWindow({
               transition={{ duration: 0.2 }}
               className="flex flex-col px-5 pt-10 pb-8"
             >
-              <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                Ask a biology question or pick a topic to practise.
-              </p>
-
-              {/* Two mode cards */}
-              <div className="flex flex-col gap-3 mb-8">
-                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-4 py-3.5 flex gap-3 items-start">
-                  <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center shrink-0 mt-0.5">
-                    <MessageCircle className="w-4 h-4 text-red-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-0.5">Ask the tutor</p>
-                    <p className="text-xs text-gray-500 leading-relaxed">Get clear explanations of any biology concept, grounded in the CCEA spec.</p>
-                  </div>
-                </div>
-                <div className={`bg-white rounded-2xl border shadow-sm px-4 py-3.5 flex gap-3 items-start transition-colors ${activeTopic ? 'border-gray-100' : 'border-dashed border-gray-200'}`}>
-                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${activeTopic ? 'bg-red-50' : 'bg-gray-50'}`}>
-                    <PenLine className={`w-4 h-4 ${activeTopic ? 'text-red-600' : 'text-gray-400'}`} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-0.5">Practise questions</p>
-                    {activeTopic ? (
-                      <p className="text-xs text-gray-500 leading-relaxed">Topic set to <span className="font-medium text-gray-700">{activeTopicName}</span>. Use the button below to get a question.</p>
-                    ) : (
-                      <p className="text-xs text-gray-500 leading-relaxed">
-                        Pick a topic first —{' '}
-                        <button onClick={onOpenTopicPicker} className="text-red-600 font-medium underline underline-offset-2 md:hidden">select one now</button>
-                        <span className="hidden md:inline">use the sidebar on the left</span>.
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick-start questions — hidden once a topic is selected */}
+              {/* Welcome / greeting card */}
               {!activeTopic && (
+                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 mb-6">
+                  {greetingLoading ? (
+                    <div className="flex gap-1.5 items-center py-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-300 animate-bounce [animation-delay:0ms]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-300 animate-bounce [animation-delay:150ms]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-300 animate-bounce [animation-delay:300ms]" />
+                    </div>
+                  ) : greeting ? (
+                    <>
+                      <p className="text-sm text-gray-700 leading-relaxed mb-4">{greeting.text}</p>
+                      <div className="flex flex-col gap-2 sm:flex-row">
+                        {greeting.suggestedTopicSlug && greeting.suggestedTopicName && (
+                          <button
+                            onClick={() => onSuggestedTopicAccept(greeting.suggestedTopicSlug!)}
+                            className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-xl bg-red-600 text-white hover:bg-red-700 transition-colors"
+                          >
+                            <Zap className="w-3.5 h-3.5" />
+                            Start with {greeting.suggestedTopicName}
+                          </button>
+                        )}
+                        <button
+                          onClick={onOpenTopicPicker}
+                          className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-xl border border-gray-200 text-gray-600 hover:border-red-200 hover:text-red-600 transition-colors md:hidden"
+                        >
+                          Browse all topics
+                        </button>
+                        <span className="hidden md:inline-flex items-center text-xs text-gray-400 px-1">
+                          or pick from the sidebar
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Ask a biology question or pick a topic to practise.
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Quick-start questions */}
+              {!activeTopic ? (
                 <>
                   <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Try asking</p>
                   <div className="flex flex-col gap-2">
                     {TOPIC_SUGGESTIONS.map(s => (
+                      <button
+                        key={s}
+                        onClick={() => onSend(s)}
+                        className="text-left text-sm text-gray-600 bg-white border border-gray-200 rounded-xl px-4 py-2.5 hover:border-red-200 hover:bg-red-50 hover:text-red-700 transition-colors"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Try asking about {activeTopicName}</p>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      `Explain the key concepts in ${activeTopicName}`,
+                      `What are the most common exam questions on ${activeTopicName}?`,
+                      `What command words might appear in a ${activeTopicName} question?`,
+                    ].map(s => (
                       <button
                         key={s}
                         onClick={() => onSend(s)}
@@ -196,9 +234,8 @@ export function ChatWindow({
       <div className={`sticky bottom-0 bg-gradient-to-t from-gray-50 via-gray-50 to-transparent pt-6 pb-4 px-4 transition-all ${questionActive ? 'hidden' : ''}`}>
         <div className="max-w-2xl mx-auto">
 
-          {/* Topic + question pill row — topic pill hidden on desktop (sidebar handles it) */}
-          <div className="flex items-center gap-2 mb-2 flex-wrap">
-            {/* Topic pill — mobile only; desktop uses sidebar */}
+          {/* Mobile-only topic pill */}
+          <div className="md:hidden flex items-center gap-2 mb-2">
             <AnimatePresence mode="wait" initial={false}>
               <motion.button
                 key={activeTopic || 'all'}
@@ -207,7 +244,7 @@ export function ChatWindow({
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
                 onClick={onOpenTopicPicker}
-                className={`md:hidden inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                   activeTopic
                     ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
                     : 'bg-white border-gray-200 text-gray-500 hover:border-red-200 hover:text-red-600'
@@ -217,50 +254,14 @@ export function ChatWindow({
                 {activeTopicName || 'All topics'}
               </motion.button>
             </AnimatePresence>
-
             {activeTopic && (
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15 }}
+              <button
                 onClick={onClearTopic}
-                className="md:hidden inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <X className="w-3 h-3" /> Clear topic
-              </motion.button>
+                <X className="w-3 h-3" /> Clear
+              </button>
             )}
-
-            <div className="flex items-center gap-1.5 ml-auto">
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  onClick={canAskQuestion ? onRequestQuestion : onOpenTopicPicker}
-                  title={canAskQuestion ? undefined : 'Select a topic first'}
-                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                    canAskQuestion
-                      ? 'bg-white border-gray-200 text-gray-500 hover:border-red-200 hover:text-red-600'
-                      : 'bg-white border-dashed border-gray-300 text-gray-400 hover:border-red-300 hover:text-red-500'
-                  }`}
-                >
-                  <BookOpen className="w-3 h-3" />
-                  {canAskQuestion ? 'Question' : 'Pick topic →'}
-                </motion.button>
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  onClick={canAskQuestion ? onRequestQuiz : onOpenTopicPicker}
-                  title={canAskQuestion ? undefined : 'Select a topic first'}
-                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                    canAskQuestion
-                      ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
-                      : 'bg-gray-100 border-gray-200 text-gray-400 hover:bg-gray-200'
-                  }`}
-                >
-                  <Zap className="w-3 h-3" />
-                  {canAskQuestion ? 'Quick quiz' : 'Quick quiz'}
-                </motion.button>
-              </div>
           </div>
 
           {/* Input box */}

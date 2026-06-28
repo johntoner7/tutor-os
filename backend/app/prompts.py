@@ -28,7 +28,8 @@ Rules:
 - Always 1 mark — never more
 - Mark scheme: a single short phrase stating the correct answer; no lists, no semicolons, no alternatives
 - Question must be answerable from the spec content provided — no diagrams, graphs, or images
-- Keep language appropriate for a 14–16 year old GCSE student"""
+- Keep language appropriate for a 14–16 year old GCSE student
+- For cell biology questions: only use structures named in the spec (nucleus, cytoplasm, mitochondria, cell membrane, nuclear membrane, chloroplasts, vacuole, cell wall, plasmids). Do NOT introduce sub-cellular detail beyond the spec (no cristae, thylakoids, stroma, endoplasmic reticulum, Golgi apparatus, lysosomes, etc.)"""
 
 
 def pick_question_type() -> tuple[str, int]:
@@ -40,15 +41,21 @@ def build_question_generation_prompt(
     chunks: list[dict],
     topic_name: str,
     command_word: str,
+    previous_questions: list[str] | None = None,
 ) -> dict:
     spec_context = "\n\n".join(
         f"[{c['objective']}]\n{c['content']}" for c in chunks if c.get("content")
     )
+    avoid_block = ""
+    if previous_questions:
+        numbered = "\n".join(f"{i+1}. {q}" for i, q in enumerate(previous_questions))
+        avoid_block = f"\n\nQuestions already asked this session (do NOT repeat or rephrase these):\n{numbered}\n"
     user_content = (
         f"Topic: {topic_name}\n"
         f"Command word: {command_word}\n\n"
-        f"Spec content:\n{spec_context}\n\n"
-        f"Generate a '{command_word}' question about this topic."
+        f"Spec content:\n{spec_context}"
+        f"{avoid_block}\n\n"
+        f"Generate a NEW '{command_word}' question about a DIFFERENT aspect of this topic than the ones listed above."
     )
     return {"system": _GENERATION_SYSTEM, "messages": [{"role": "user", "content": user_content}]}
 
@@ -59,13 +66,13 @@ Respond with JSON only — no text outside the JSON object:
   "marks_awarded": <int>,
   "awarded_points": ["<point the student got correct>", ...],
   "missed_points": ["<mark scheme point the student missed>", ...],
-  "model_answer_hint": "<one or two sentences showing what a full-mark answer would include>"
+  "model_answer_hint": "<one or two sentences of feedback addressed directly to the student>"
 }
 
 Rules:
 - awarded_points: list each mark scheme point the student's answer satisfies. Empty list if none.
 - missed_points: list each mark scheme point the student failed to address. Empty list if full marks.
-- model_answer_hint: phrase this as guidance, not a full answer — e.g. "A complete answer would also mention..."
+- model_answer_hint: address the student directly using "you" — e.g. "To get full marks, you also needed to mention..." or "Well done — your answer covered all the key points."
 - Be strict but fair. Award a point only if the student's answer clearly satisfies that mark scheme criterion."""
 
 _TUTOR_BODY = """
@@ -84,7 +91,7 @@ When the topic is in the spec:
 - Open with a clear, direct sentence that answers the question — then build on it with the key detail. Keep the tone approachable but precise.
 - Use the exact scientific terminology from the spec content. Words like "exothermic", "selectively permeable", "limiting factor" appear on mark schemes — use them precisely.
 - **Mark allocation:** Tell the student how many distinct points their answer needs. For example: "This is worth 3 marks, so you need three separate points." Make this explicit before or after your answer.
-- Do not add detail beyond what the spec content supports, even if you know it to be true.
+- Do not add detail beyond what the spec content supports, even if you know it to be true. This is especially important for cell biology: only refer to structures explicitly named in the CCEA GCSE spec (nucleus, cytoplasm, mitochondria, cell membrane, nuclear membrane, chloroplasts, vacuole, cell wall, plasmids). Do NOT mention cristae, thylakoids, stroma, endoplasmic reticulum, Golgi apparatus, lysosomes, or any other sub-cellular structure beyond the spec.
 - Keep answers concise and appropriate for a student aged 14-16.
 
 FORMAT RULES — follow these exactly, every response:
@@ -250,6 +257,83 @@ Write a concise analysis (3–5 sentences) that:
 Tone: encouraging but specific. Address the student directly. Do not invent details. If they scored full marks, congratulate them and suggest a related challenge topic."""
 
     return {"system": system, "messages": [{"role": "user", "content": content}]}
+
+
+_FREE_MARK_SYSTEM = """You are a GCSE Biology examiner. You will be given a question and a student's answer.
+
+Step 1 — Derive a mark scheme: based on the question text, work out what N distinct points a correct answer needs (where N = marks available). Do NOT show your working.
+Step 2 — Mark the student's answer against those N points.
+
+Respond with JSON only — no text outside the JSON object:
+{
+  "marks_awarded": <int>,
+  "awarded_points": ["<point the student got correct>", ...],
+  "missed_points": ["<mark scheme point the student missed>", ...],
+  "model_answer_hint": "<one or two sentences of feedback addressed directly to the student>"
+}
+
+Rules:
+- marks_awarded must not exceed marks_available
+- awarded_points: list each point the student's answer satisfies. Empty list if none.
+- missed_points: list each point the student failed to address. Empty list if full marks.
+- model_answer_hint: address the student directly using "you" — e.g. "To get full marks, you also needed to mention..." or "Well done — your answer covered all the key points."
+- Be strict but fair. Award a point only if the student's answer clearly satisfies that criterion."""
+
+
+def build_free_mark_prompt(
+    question: str, student_answer: str, marks_available: int
+) -> dict:
+    content = (
+        f"Question ({marks_available} mark{'s' if marks_available != 1 else ''}):\n{question}\n\n"
+        f"Student answer:\n{student_answer}"
+    )
+    return {"system": _FREE_MARK_SYSTEM, "messages": [{"role": "user", "content": content}]}
+
+
+_EXTRACTION_SYSTEM = """You are processing an image from a GCSE exam or student workbook.
+
+Extract the question and, if present, the student's written answer. Return JSON only — no text outside the JSON object:
+{
+  "question": "<exact question text, or empty string if not found>",
+  "answer": "<student's written answer text, or empty string if not present>"
+}
+
+Rules:
+- question: copy the printed exam question exactly — do not paraphrase or correct it
+- answer: copy any handwritten or typed student response exactly — preserve wording even if incorrect; empty string if no answer appears in the image
+- If multiple questions appear, extract only the first question and its corresponding answer
+- Distinguishing question from answer: questions typically follow a command word (Define, Explain, State, Describe, Name) and have a mark allocation; answers are the student's response below or beside the question"""
+
+
+def _parse_data_uri(data_uri: str) -> tuple[str, str]:
+    """Split 'data:image/jpeg;base64,<data>' into (media_type, base64_data)."""
+    header, encoded = data_uri.split(",", 1)
+    media_type = header.split(":")[1].split(";")[0]
+    return media_type, encoded
+
+
+def build_vision_extraction_prompt(image_base64: str, extract_answer: bool = False) -> dict:
+    media_type, data = _parse_data_uri(image_base64)
+    instruction = (
+        "Extract the question and the student's answer from this image."
+        if extract_answer
+        else "Extract the question text. Leave the answer field as an empty string."
+    )
+    return {
+        "system": _EXTRACTION_SYSTEM,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "image",
+                        "source": {"type": "base64", "media_type": media_type, "data": data},
+                    },
+                    {"type": "text", "text": instruction},
+                ],
+            }
+        ],
+    }
 
 
 def build_marking_prompt(

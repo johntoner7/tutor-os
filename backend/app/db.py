@@ -42,6 +42,10 @@ def get_generated_question(question_id):
     return _repo.get_generated_question(question_id)
 
 
+def get_recent_questions_for_session(session_id: str, topic_slug: str, limit: int = 10) -> list[str]:
+    return _repo.get_recent_questions_for_session(session_id, topic_slug, limit)
+
+
 def get_session_events(session_id):
     return _repo.get_session_events(session_id)
 
