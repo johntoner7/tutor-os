@@ -27,6 +27,8 @@ async def _generate_question(
     subject_id: str,
     topic_slug: str,
     session_id: str | None = None,
+    source: str = "live",
+    avoid_questions: list[str] | None = None,
 ) -> QuestionResponse:
     topic_name = _topic_name(subject, topic_slug)
     command_word, _ = pick_question_type()
@@ -43,10 +45,16 @@ async def _generate_question(
     if not chunks:
         chunks = subject.retriever.retrieve_spec_chunks(query=query, top_k=5)
 
-    previous_questions = (
-        db.get_recent_questions_for_session(session_id, topic_slug)
-        if session_id else []
-    )
+    if avoid_questions is not None:
+        # Bulk generation has no session — caller passes questions already
+        # produced for this topic in the current run so the LLM doesn't
+        # cluster around the same retrieved chunks.
+        previous_questions = avoid_questions[-15:]
+    else:
+        previous_questions = (
+            db.get_recent_questions_for_session(session_id, topic_slug)
+            if session_id else []
+        )
 
     prompt = build_question_generation_prompt(chunks, topic_name, command_word, previous_questions)
     raw, _ = complete(
@@ -66,6 +74,13 @@ async def _generate_question(
         print(f"[question_gen] failed to parse LLM response ({e}). Raw: {raw[:200]!r}")
         raise HTTPException(status_code=502, detail="Failed to generate question — please try again")
 
+    # objective_id is best-effort (the LLM might omit it or hallucinate an id
+    # not in the chunks we gave it) — coverage tracking just skips those.
+    valid_chunk_ids = {c["id"] for c in chunks}
+    objective_id = data.get("objective_id")
+    if objective_id not in valid_chunk_ids:
+        objective_id = None
+
     question_id = f"gen_{uuid.uuid4().hex[:12]}"
     db.save_generated_question(
         question_id=question_id,
@@ -76,6 +91,8 @@ async def _generate_question(
         mark_scheme=mark_scheme,
         marks=marks,
         difficulty=difficulty,
+        source=source,
+        objective_id=objective_id,
     )
 
     return QuestionResponse(
@@ -85,6 +102,23 @@ async def _generate_question(
         year=None,
         topic=topic_name,
         difficulty=difficulty,
+        is_generated=True,
+    )
+
+
+def _pick_pool_question(subject_id: str, topic_slug: str, session_id: str | None) -> QuestionResponse | None:
+    """Serve an unseen pre-generated question from the pool, if one exists."""
+    exclude_ids = db.get_served_question_ids_for_session(session_id, topic_slug) if session_id else []
+    row = db.get_pool_question(subject_id, topic_slug, exclude_ids)
+    if not row:
+        return None
+    return QuestionResponse(
+        question_id=row["id"],
+        question=row["question"],
+        marks=row["marks"],
+        year=None,
+        topic=row["topic_name"],
+        difficulty=row["difficulty"],
         is_generated=True,
     )
 
@@ -101,7 +135,10 @@ async def get_question(
     if subject is None:
         raise HTTPException(status_code=404, detail=f"Subject '{request.subject}' not found")
 
-    response = await _generate_question(subject, request.subject, request.topic_slug, request.session_id)
+    response = _pick_pool_question(request.subject, request.topic_slug, request.session_id)
+    if response is None:
+        response = await _generate_question(subject, request.subject, request.topic_slug, request.session_id)
+
     if request.session_id:
         db.log_question_served(
             request.session_id, request.subject, request.topic_slug, response.question_id, user_id

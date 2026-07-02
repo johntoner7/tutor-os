@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { GraduationCap } from 'lucide-react'
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
@@ -51,8 +52,8 @@ export function LoginScreen({ verifying, verifyError }: Props) {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="flex items-center gap-2.5 mb-8">
-          <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center">
-            <span className="text-lg">🧬</span>
+          <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center shrink-0">
+            <GraduationCap className="w-4.5 h-4.5 text-white" />
           </div>
           <span className="text-base font-bold text-gray-900">CCEA Biology</span>
         </div>

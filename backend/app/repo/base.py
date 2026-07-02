@@ -47,9 +47,21 @@ class Repository(Protocol):
         mark_scheme: str,
         marks: int,
         difficulty: str,
+        source: str = "live",
+        objective_id: str | None = None,
     ) -> None: ...
 
     def get_generated_question(self, question_id: str) -> dict | None: ...
+
+    def get_pool_question(
+        self, subject: str, topic_slug: str, exclude_ids: list[str]
+    ) -> dict | None: ...
+
+    def get_served_question_ids_for_session(
+        self, session_id: str, topic_slug: str
+    ) -> list[str]: ...
+
+    def get_covered_objectives_for_user(self, user_id: str, topic_slug: str) -> list[str]: ...
 
     def get_session_events(self, session_id: str) -> list[dict]: ...
 

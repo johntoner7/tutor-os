@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MessageCircle, PenLine, CheckSquare, GraduationCap } from 'lucide-react'
+import { MessageCircle, PenLine, ArrowLeft, ListTree, CheckSquare, GraduationCap } from 'lucide-react'
 import { fetchTopics } from './api/client'
 import { useAuth } from './hooks/useAuth'
 import { useGreeting } from './hooks/useGreeting'
@@ -19,8 +19,6 @@ import { TopicSidebar } from './components/TopicSidebar'
 import { fetchSessionSummary } from './api/client'
 import type { SessionSummary, Topic } from './types'
 
-type Mode = 'chat' | 'practice' | 'mark'
-
 const QUIZ_SIZE = 5
 
 interface QuizResult {
@@ -36,10 +34,12 @@ export default function App() {
   const [masteryVersion, setMasteryVersion] = useState(0)
   const mastery = useMastery(user?.userId, masteryVersion)
   const [topics, setTopics] = useState<Topic[]>([])
+  const [topicsLoading, setTopicsLoading] = useState(true)
   const [topicsError, setTopicsError] = useState<string | null>(null)
   const [activeTopic, setActiveTopic] = useState('')
   const [showTopicDrawer, setShowTopicDrawer] = useState(false)
-  const [mode, setMode] = useState<Mode>('chat')
+  const [showChatOverlay, setShowChatOverlay] = useState(false)
+  const [showMarkOverlay, setShowMarkOverlay] = useState(false)
 
   // Practice mode state
   const [showQuestion, setShowQuestion] = useState(false)
@@ -68,7 +68,22 @@ export default function App() {
     fetchTopics()
       .then(data => setTopics(data.topics))
       .catch(err => setTopicsError(err instanceof Error ? err.message : 'Failed to load topics.'))
+      .finally(() => setTopicsLoading(false))
   }, [user])
+
+  useEffect(() => {
+    if (!activeTopic && topics.length > 0) {
+      setActiveTopic(topics[0].slug)
+    }
+  }, [activeTopic, topics])
+
+  useEffect(() => {
+    if (activeTopic && !showQuestion && quizPhase === 'idle') {
+      setShowQuestion(true)
+      getQuestion(activeTopic)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTopic])
 
   function resetQuiz() {
     setQuizPhase('idle')
@@ -153,10 +168,7 @@ export default function App() {
   }
 
   function handleAskTutor(message: string) {
-    setMode('chat')
-    setShowQuestion(false)
-    resetQuestion()
-    resetQuiz()
+    setShowChatOverlay(true)
     setShowSessionSummary(false)
     send(message)
   }
@@ -172,35 +184,16 @@ export default function App() {
       .finally(() => setSessionSummaryLoading(false))
   }
 
-  function handleSwitchMode(next: Mode, autoStart?: 'question' | 'quiz') {
-    setMode(next)
-    if (next === 'practice' && activeTopic && !showQuestion && quizPhase === 'idle') {
-      if (autoStart === 'quiz') {
-        handleStartQuiz()
-      } else {
-        // default: auto-request a single question
-        setShowQuestion(true)
-        getQuestion(activeTopic)
-      }
-    }
-  }
-
   const activeTopicName = topics.find(t => t.slug === activeTopic)?.name ?? ''
 
   if (!user) {
     return <LoginScreen verifying={verifying} verifyError={verifyError} />
   }
 
-  const tabs: { id: Mode; label: string; shortLabel: string; icon: React.ReactNode }[] = [
-    { id: 'chat', label: 'Tutor', shortLabel: 'Tutor', icon: <MessageCircle className="w-3.5 h-3.5" /> },
-    { id: 'practice', label: 'Practice', shortLabel: 'Practice', icon: <PenLine className="w-3.5 h-3.5" /> },
-    { id: 'mark', label: 'Mark My Answer', shortLabel: 'Mark', icon: <CheckSquare className="w-3.5 h-3.5" /> },
-  ]
-
   return (
     <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
-      {/* Header + tabs in one row */}
-      <header className="shrink-0 bg-white border-b border-gray-100 flex items-stretch px-4 md:px-6 gap-3 h-12">
+      {/* Header */}
+      <header className="shrink-0 bg-white border-b border-gray-100 flex items-center px-4 md:px-6 gap-3 h-12">
         <div className="flex items-center gap-2.5 shrink-0">
           <div className="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center shrink-0">
             <GraduationCap className="w-4 h-4 text-white" />
@@ -208,32 +201,35 @@ export default function App() {
           <span className="hidden sm:block text-sm font-bold text-gray-900">CCEA Biology</span>
         </div>
 
-        {/* Tabs */}
-        <nav className="flex items-stretch gap-0.5 ml-4">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => handleSwitchMode(tab.id)}
-              className={`relative flex items-center gap-1.5 text-xs font-medium px-3 transition-colors ${
-                mode === tab.id ? 'text-red-600' : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              {tab.icon}
-              <span className="hidden sm:inline">{tab.label}</span>
-              <span className="sm:hidden">{tab.shortLabel}</span>
-              {mode === tab.id && (
-                <motion.div
-                  layoutId="tab-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-500 rounded-full"
-                  transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.2 }}
-                />
-              )}
-            </button>
-          ))}
-        </nav>
-
-        <div className="ml-auto flex items-center gap-3">
-          <span className="hidden md:block text-xs text-gray-400">{user.email}</span>
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            onClick={() => setShowTopicDrawer(true)}
+            className={`md:hidden inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-gray-200 rounded-lg transition-colors ${
+              showTopicDrawer ? 'text-red-600 border-red-200' : 'text-gray-600 hover:border-red-200 hover:text-red-600'
+            }`}
+          >
+            <ListTree className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Topics</span>
+          </button>
+          <button
+            onClick={() => setShowChatOverlay(true)}
+            className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-gray-200 rounded-lg transition-colors ${
+              showChatOverlay ? 'text-red-600 border-red-200' : 'text-gray-600 hover:border-red-200 hover:text-red-600'
+            }`}
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Ask Tutor</span>
+          </button>
+          <button
+            onClick={() => setShowMarkOverlay(true)}
+            className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-gray-200 rounded-lg transition-colors ${
+              showMarkOverlay ? 'text-red-600 border-red-200' : 'text-gray-600 hover:border-red-200 hover:text-red-600'
+            }`}
+          >
+            <CheckSquare className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Mark My Answer</span>
+          </button>
+          <span className="hidden md:block text-xs text-gray-400 ml-2">{user.email}</span>
           <button onClick={logout} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
             Sign out
           </button>
@@ -254,55 +250,33 @@ export default function App() {
         <main className="flex-1 flex flex-col min-w-0 min-h-0">
           <div className="flex-1 min-h-0 max-w-3xl w-full mx-auto flex flex-col">
 
-            {/* Chat mode */}
-            <div className={`flex-1 min-h-0 flex flex-col ${mode === 'chat' ? '' : 'hidden'}`}>
-              <ChatWindow
-                history={history}
-                loading={loading}
-                error={chatError}
-                activeTopic={activeTopic}
-                activeTopicName={activeTopicName}
-                questionActive={false}
-                greeting={greeting}
-                greetingLoading={greetingLoading}
-                onSend={send}
-                onOpenTopicPicker={() => setShowTopicDrawer(true)}
-                onClearTopic={handleClearTopic}
-                onTopicSelect={handleTopicSelect}
-                onEndSession={handleEndSession}
-                onSuggestedTopicAccept={(slug) => {
-                  handleTopicSelect(slug)
-                  handleSwitchMode('practice')
-                }}
-              />
-            </div>
-
-            {/* Practice mode */}
-            <div className={`flex-1 min-h-0 flex flex-col ${mode === 'practice' ? '' : 'hidden'}`}>
-              {/* Mobile topic switcher — always visible in practice mode */}
-              {mode === 'practice' && (
-                <div className="md:hidden shrink-0 flex items-center gap-2 px-4 py-2 border-b border-gray-100 bg-white">
-                  <button
-                    onClick={() => setShowTopicDrawer(true)}
-                    className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                      activeTopic
-                        ? 'bg-red-50 border-red-200 text-red-700'
-                        : 'bg-white border-gray-200 text-gray-500'
-                    }`}
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60" />
-                    {activeTopicName || 'Pick a topic'}
-                  </button>
-                  {activeTopic && (
-                    <button
-                      onClick={handleClearTopic}
-                      className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-                    >
-                      Change
-                    </button>
-                  )}
-                </div>
+            {/* Practice/question flow — default view */}
+            <div className="flex-1 min-h-0 flex flex-col">
+              {greeting && !greetingLoading && (
+                <p className="shrink-0 px-4 pt-4 pb-1 text-base font-semibold text-gray-900">{greeting.text}</p>
               )}
+              {/* Mobile topic switcher */}
+              <div className="md:hidden shrink-0 flex items-center gap-2 px-4 py-2 border-b border-gray-100 bg-white">
+                <button
+                  onClick={() => setShowTopicDrawer(true)}
+                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                    activeTopic
+                      ? 'bg-red-50 border-red-200 text-red-700'
+                      : 'bg-white border-gray-200 text-gray-500'
+                  }`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60" />
+                  {activeTopicName || 'Pick a topic'}
+                </button>
+                {activeTopic && (
+                  <button
+                    onClick={handleClearTopic}
+                    className="ml-auto text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    Change
+                  </button>
+                )}
+              </div>
               {showSessionSummary ? (
                 <SessionSummaryPanel
                   summary={sessionSummary}
@@ -326,6 +300,15 @@ export default function App() {
                   onClose={handleQuizClose}
                   onAskTutor={handleAskTutor}
                 />
+              ) : topicsLoading || (!activeTopic && !topicsError) ? (
+                <div className="flex-1 flex flex-col items-center justify-center gap-3">
+                  <div className="flex gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-red-400 animate-bounce [animation-delay:0ms]" />
+                    <span className="w-2 h-2 rounded-full bg-red-400 animate-bounce [animation-delay:150ms]" />
+                    <span className="w-2 h-2 rounded-full bg-red-400 animate-bounce [animation-delay:300ms]" />
+                  </div>
+                  <p className="text-xs text-gray-400">Loading…</p>
+                </div>
               ) : !activeTopic ? (
                 <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center">
@@ -406,15 +389,6 @@ export default function App() {
               ) : null}
             </div>
 
-            {/* Mark my answer mode */}
-            <div className={`flex-1 min-h-0 flex flex-col ${mode === 'mark' ? '' : 'hidden'}`}>
-              <FreeMarkPanel
-                sessionId={sessionId}
-                topics={topics}
-                onClose={() => setMode('chat')}
-              />
-            </div>
-
           </div>
         </main>
       </div>
@@ -429,6 +403,80 @@ export default function App() {
         onSelect={handleTopicSelect}
         onClose={() => setShowTopicDrawer(false)}
       />
+
+      {/* Chat overlay */}
+      <AnimatePresence>
+        {showChatOverlay && (
+          <motion.div
+            className="absolute inset-0 z-40 bg-white flex flex-col"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.22 }}
+          >
+            <div className="shrink-0 h-12 flex items-center px-4 border-b border-gray-100">
+              <button
+                onClick={() => setShowChatOverlay(false)}
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 hover:text-red-600 transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                Back to question
+              </button>
+            </div>
+            <div className="flex-1 min-h-0 max-w-3xl w-full mx-auto flex flex-col">
+              <ChatWindow
+                history={history}
+                loading={loading}
+                error={chatError}
+                activeTopic={activeTopic}
+                activeTopicName={activeTopicName}
+                questionActive={false}
+                greeting={greeting}
+                greetingLoading={greetingLoading}
+                onSend={send}
+                onOpenTopicPicker={() => setShowTopicDrawer(true)}
+                onClearTopic={handleClearTopic}
+                onTopicSelect={handleTopicSelect}
+                onEndSession={handleEndSession}
+                onSuggestedTopicAccept={(slug) => {
+                  handleTopicSelect(slug)
+                  setShowChatOverlay(false)
+                }}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mark my answer overlay */}
+      <AnimatePresence>
+        {showMarkOverlay && (
+          <motion.div
+            className="absolute inset-0 z-40 bg-white flex flex-col"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.22 }}
+          >
+            <div className="shrink-0 h-12 flex items-center px-4 border-b border-gray-100">
+              <button
+                onClick={() => setShowMarkOverlay(false)}
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 hover:text-red-600 transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                Back to question
+              </button>
+            </div>
+            <div className="flex-1 min-h-0 max-w-3xl w-full mx-auto flex flex-col">
+              <FreeMarkPanel
+                sessionId={sessionId}
+                topics={topics}
+                onClose={() => setShowMarkOverlay(false)}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

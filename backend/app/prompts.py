@@ -20,7 +20,8 @@ Return JSON only — no text outside the JSON object:
   "question": "<the question text>",
   "mark_scheme": "<exactly one correct answer — the single fact or term that earns the mark>",
   "marks": 1,
-  "difficulty": "low"
+  "difficulty": "low",
+  "objective_id": "<the id of the spec objective below that this question primarily tests>"
 }
 
 Rules:
@@ -29,6 +30,7 @@ Rules:
 - Mark scheme: a single short phrase stating the correct answer; no lists, no semicolons, no alternatives
 - Question must be answerable from the spec content provided — no diagrams, graphs, or images
 - Keep language appropriate for a 14–16 year old GCSE student
+- objective_id must be copied exactly from one of the [id] tags in the spec content provided — pick whichever objective the question is actually about
 - For cell biology questions: only use structures named in the spec (nucleus, cytoplasm, mitochondria, cell membrane, nuclear membrane, chloroplasts, vacuole, cell wall, plasmids). Do NOT introduce sub-cellular detail beyond the spec (no cristae, thylakoids, stroma, endoplasmic reticulum, Golgi apparatus, lysosomes, etc.)"""
 
 
@@ -44,7 +46,7 @@ def build_question_generation_prompt(
     previous_questions: list[str] | None = None,
 ) -> dict:
     spec_context = "\n\n".join(
-        f"[{c['objective']}]\n{c['content']}" for c in chunks if c.get("content")
+        f"[id: {c['id']}] [{c['objective']}]\n{c['content']}" for c in chunks if c.get("content")
     )
     avoid_block = ""
     if previous_questions:

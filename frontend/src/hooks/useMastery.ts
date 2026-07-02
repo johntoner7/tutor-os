@@ -7,6 +7,8 @@ export type MasteryEntry = {
   questions_attempted: number
   avg_score_percent: number | null
   last_active: string | null
+  objectives_covered: number
+  objectives_total: number
 }
 
 export type MasteryMap = Map<string, MasteryEntry>
@@ -25,6 +27,8 @@ export function useMastery(userId: string | undefined, version = 0): MasteryMap 
             questions_attempted: t.questions_attempted,
             avg_score_percent: t.avg_score_percent,
             last_active: t.last_active,
+            objectives_covered: t.objectives_covered,
+            objectives_total: t.objectives_total,
           })
         }
         setMastery(map)

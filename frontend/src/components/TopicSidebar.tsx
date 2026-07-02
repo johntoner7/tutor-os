@@ -1,6 +1,6 @@
 import type { MasteryStatus } from '../types'
 import type { Topic } from '../types'
-import type { MasteryMap } from '../hooks/useMastery'
+import type { MasteryEntry, MasteryMap } from '../hooks/useMastery'
 
 interface Props {
   topics: Topic[]
@@ -25,14 +25,15 @@ function MasteryDot({ status }: { status: MasteryStatus | undefined }) {
 function TopicButton({
   topic,
   isActive,
-  status,
+  entry,
   onSelect,
 }: {
   topic: Topic
   isActive: boolean
-  status: MasteryStatus | undefined
+  entry: MasteryEntry | undefined
   onSelect: (slug: string) => void
 }) {
+  const showCoverage = entry && entry.questions_attempted > 0 && entry.objectives_total > 0
   return (
     <button
       onClick={() => onSelect(topic.slug)}
@@ -42,8 +43,13 @@ function TopicButton({
           : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
       }`}
     >
-      <MasteryDot status={status} />
-      <span className="leading-snug">{topic.name}</span>
+      <MasteryDot status={entry?.status} />
+      <span className="leading-snug flex-1 min-w-0 truncate">{topic.name}</span>
+      {showCoverage && (
+        <span className="shrink-0 text-[11px] tabular-nums text-gray-400">
+          {entry.objectives_covered}/{entry.objectives_total}
+        </span>
+      )}
     </button>
   )
 }
@@ -70,7 +76,7 @@ export function TopicSidebar({ topics, topicsError, mastery, activeTopic, onSele
                       key={t.slug}
                       topic={t}
                       isActive={t.slug === activeTopic}
-                      status={mastery.get(t.slug)?.status}
+                      entry={mastery.get(t.slug)}
                       onSelect={onSelect}
                     />
                   ))}
@@ -86,7 +92,7 @@ export function TopicSidebar({ topics, topicsError, mastery, activeTopic, onSele
                       key={t.slug}
                       topic={t}
                       isActive={t.slug === activeTopic}
-                      status={mastery.get(t.slug)?.status}
+                      entry={mastery.get(t.slug)}
                       onSelect={onSelect}
                     />
                   ))}
@@ -112,6 +118,9 @@ export function TopicSidebar({ topics, topicsError, mastery, activeTopic, onSele
             </div>
           ))}
         </div>
+        <p className="text-[11px] text-gray-300 mt-2 leading-snug">
+          Numbers show spec objectives covered — a high score doesn't always mean full coverage.
+        </p>
       </div>
     </aside>
   )

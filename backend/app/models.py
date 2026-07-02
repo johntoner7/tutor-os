@@ -99,6 +99,8 @@ class UserTopicMastery(BaseModel):
     questions_attempted: int
     avg_score_percent: float | None
     last_active: str | None
+    objectives_covered: int = 0
+    objectives_total: int = 0
 
 
 class UserMasteryResponse(BaseModel):

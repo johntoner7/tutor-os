@@ -46,9 +46,20 @@ class PostgresRepository:
                         mark_scheme TEXT NOT NULL,
                         marks       INTEGER NOT NULL,
                         difficulty  TEXT NOT NULL,
-                        created_at  TEXT NOT NULL
+                        created_at  TEXT NOT NULL,
+                        source      TEXT NOT NULL DEFAULT 'live',
+                        objective_id TEXT
                     )
                 """)
+                cur.execute(
+                    "ALTER TABLE generated_questions ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'live'"
+                )
+                cur.execute(
+                    "ALTER TABLE generated_questions ADD COLUMN IF NOT EXISTS objective_id TEXT"
+                )
+                cur.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_pool_lookup ON generated_questions(subject, topic_slug, source)"
+                )
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS activity_events (
                         id               SERIAL PRIMARY KEY,
@@ -156,16 +167,18 @@ class PostgresRepository:
         mark_scheme: str,
         marks: int,
         difficulty: str,
+        source: str = "live",
+        objective_id: str | None = None,
     ) -> None:
         with self._conn() as conn:
             with conn.cursor() as cur:
                 cur.execute(
                     """INSERT INTO generated_questions
-                       (id, subject, topic_slug, topic_name, question, mark_scheme, marks, difficulty, created_at)
-                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                       (id, subject, topic_slug, topic_name, question, mark_scheme, marks, difficulty, created_at, source, objective_id)
+                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                        ON CONFLICT (id) DO NOTHING""",
                     (question_id, subject, topic_slug, topic_name, question,
-                     mark_scheme, marks, difficulty, self._now()),
+                     mark_scheme, marks, difficulty, self._now(), source, objective_id),
                 )
 
     def get_generated_question(self, question_id: str) -> dict | None:
@@ -174,6 +187,33 @@ class PostgresRepository:
                 cur.execute("SELECT * FROM generated_questions WHERE id = %s", (question_id,))
                 row = cur.fetchone()
         return dict(row) if row else None
+
+    def get_pool_question(
+        self, subject: str, topic_slug: str, exclude_ids: list[str]
+    ) -> dict | None:
+        with self._conn() as conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(
+                    """SELECT * FROM generated_questions
+                       WHERE subject = %s AND topic_slug = %s AND source = 'bulk'
+                         AND NOT (id = ANY(%s))
+                       ORDER BY RANDOM() LIMIT 1""",
+                    (subject, topic_slug, exclude_ids),
+                )
+                row = cur.fetchone()
+        return dict(row) if row else None
+
+    def get_served_question_ids_for_session(
+        self, session_id: str, topic_slug: str
+    ) -> list[str]:
+        with self._conn() as conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(
+                    """SELECT DISTINCT question_id FROM activity_events
+                       WHERE session_id = %s AND topic_slug = %s AND event_type = 'question_served'""",
+                    (session_id, topic_slug),
+                )
+                return [r["question_id"] for r in cur.fetchall()]
 
     def get_session_events(self, session_id: str) -> list[dict]:
         with self._conn() as conn:
@@ -232,6 +272,20 @@ class PostgresRepository:
             "total_events": summary["total_events"] if summary else 0,
             "topic_mastery": [dict(r) for r in mastery_rows],
         }
+
+    def get_covered_objectives_for_user(self, user_id: str, topic_slug: str) -> list[str]:
+        with self._conn() as conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(
+                    """SELECT DISTINCT gq.objective_id
+                       FROM activity_events ae
+                       JOIN generated_questions gq ON gq.id = ae.question_id
+                       WHERE ae.user_id = %s AND ae.topic_slug = %s
+                         AND ae.event_type = 'question_served'
+                         AND gq.objective_id IS NOT NULL""",
+                    (user_id, topic_slug),
+                )
+                return [r["objective_id"] for r in cur.fetchall()]
 
     def get_user_mastery(self, user_id: str) -> list[dict]:
         with self._conn() as conn:

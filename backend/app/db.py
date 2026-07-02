@@ -33,13 +33,25 @@ def get_mastery(session_id):
 
 
 def save_generated_question(question_id, subject, topic_slug, topic_name,
-                            question, mark_scheme, marks, difficulty):
+                            question, mark_scheme, marks, difficulty, source="live", objective_id=None):
     _repo.save_generated_question(question_id, subject, topic_slug, topic_name,
-                                  question, mark_scheme, marks, difficulty)
+                                  question, mark_scheme, marks, difficulty, source, objective_id)
 
 
 def get_generated_question(question_id):
     return _repo.get_generated_question(question_id)
+
+
+def get_pool_question(subject, topic_slug, exclude_ids):
+    return _repo.get_pool_question(subject, topic_slug, exclude_ids)
+
+
+def get_served_question_ids_for_session(session_id, topic_slug):
+    return _repo.get_served_question_ids_for_session(session_id, topic_slug)
+
+
+def get_covered_objectives_for_user(user_id, topic_slug):
+    return _repo.get_covered_objectives_for_user(user_id, topic_slug)
 
 
 def get_recent_questions_for_session(session_id: str, topic_slug: str, limit: int = 10) -> list[str]:

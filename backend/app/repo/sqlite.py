@@ -50,9 +50,22 @@ class SQLiteRepository:
                     mark_scheme TEXT NOT NULL,
                     marks       INTEGER NOT NULL,
                     difficulty  TEXT NOT NULL,
-                    created_at  TEXT NOT NULL
+                    created_at  TEXT NOT NULL,
+                    source      TEXT NOT NULL DEFAULT 'live',
+                    objective_id TEXT
                 )
             """)
+            for col, definition in [
+                ("source", "TEXT NOT NULL DEFAULT 'live'"),
+                ("objective_id", "TEXT"),
+            ]:
+                try:
+                    conn.execute(f"ALTER TABLE generated_questions ADD COLUMN {col} {definition}")
+                except Exception:
+                    pass
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_pool_lookup ON generated_questions(subject, topic_slug, source)"
+            )
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS activity_events (
                     id               INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -181,14 +194,16 @@ class SQLiteRepository:
         mark_scheme: str,
         marks: int,
         difficulty: str,
+        source: str = "live",
+        objective_id: str | None = None,
     ) -> None:
         with self._conn() as conn:
             conn.execute(
                 """INSERT OR IGNORE INTO generated_questions
-                   (id, subject, topic_slug, topic_name, question, mark_scheme, marks, difficulty, created_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                   (id, subject, topic_slug, topic_name, question, mark_scheme, marks, difficulty, created_at, source, objective_id)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (question_id, subject, topic_slug, topic_name, question,
-                 mark_scheme, marks, difficulty, self._now()),
+                 mark_scheme, marks, difficulty, self._now(), source, objective_id),
             )
 
     def get_generated_question(self, question_id: str) -> dict | None:
@@ -198,6 +213,31 @@ class SQLiteRepository:
             ).fetchone()
         return dict(row) if row else None
 
+    def get_pool_question(
+        self, subject: str, topic_slug: str, exclude_ids: list[str]
+    ) -> dict | None:
+        with self._conn() as conn:
+            placeholders = ",".join("?" * len(exclude_ids))
+            exclude_clause = f"AND id NOT IN ({placeholders})" if exclude_ids else ""
+            row = conn.execute(
+                f"""SELECT * FROM generated_questions
+                    WHERE subject = ? AND topic_slug = ? AND source = 'bulk' {exclude_clause}
+                    ORDER BY RANDOM() LIMIT 1""",
+                (subject, topic_slug, *exclude_ids),
+            ).fetchone()
+        return dict(row) if row else None
+
+    def get_served_question_ids_for_session(
+        self, session_id: str, topic_slug: str
+    ) -> list[str]:
+        with self._conn() as conn:
+            rows = conn.execute(
+                """SELECT DISTINCT question_id FROM activity_events
+                   WHERE session_id = ? AND topic_slug = ? AND event_type = 'question_served'""",
+                (session_id, topic_slug),
+            ).fetchall()
+        return [r["question_id"] for r in rows]
+
     def get_session_events(self, session_id: str) -> list[dict]:
         with self._conn() as conn:
             rows = conn.execute(
@@ -205,6 +245,19 @@ class SQLiteRepository:
                 (session_id,),
             ).fetchall()
         return [dict(r) for r in rows]
+
+    def get_covered_objectives_for_user(self, user_id: str, topic_slug: str) -> list[str]:
+        with self._conn() as conn:
+            rows = conn.execute(
+                """SELECT DISTINCT gq.objective_id
+                   FROM activity_events ae
+                   JOIN generated_questions gq ON gq.id = ae.question_id
+                   WHERE ae.user_id = ? AND ae.topic_slug = ?
+                     AND ae.event_type = 'question_served'
+                     AND gq.objective_id IS NOT NULL""",
+                (user_id, topic_slug),
+            ).fetchall()
+        return [r["objective_id"] for r in rows]
 
     def get_recent_questions_for_session(
         self, session_id: str, topic_slug: str, limit: int = 10

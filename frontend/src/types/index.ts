@@ -77,6 +77,8 @@ export interface UserTopicMastery {
   questions_attempted: number
   avg_score_percent: number | null
   last_active: string | null
+  objectives_covered: number
+  objectives_total: number
 }
 
 export interface UserMasteryResponse {
